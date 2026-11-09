@@ -33,6 +33,24 @@ navbar: {
 }
 ```
 
+## Announcements
+
+Quiet supports Docusaurus's built-in, dismissible announcement bar. It is absent unless you configure it:
+
+```js title="docusaurus.config.js"
+themeConfig: {
+  announcementBar: {
+    id: "release-2",
+    content: 'Version 2 is available. <a href="/releases">See what changed</a>',
+    backgroundColor: "var(--quiet-surface)",
+    textColor: "var(--quiet-ink)",
+    isCloseable: true,
+  },
+},
+```
+
+Docusaurus remembers dismissal for that `id`. Use a new ID for a new announcement. Omit `announcementBar` to remove it. Include your site's base path in links when hosted below a subdirectory.
+
 ## Page outline
 
 Use one H1 per page. Put tasks under H2 headings and their steps under H3. Docusaurus builds the page outline from those headings.

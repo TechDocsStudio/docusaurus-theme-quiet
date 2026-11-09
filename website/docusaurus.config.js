@@ -120,6 +120,14 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    announcementBar: {
+      id: "techdocs-studio",
+      content:
+        'Quiet is made by TechDocs Studio. We build documentation platforms. <a href="https://techdocs.studio/">Learn about us</a>',
+      backgroundColor: "var(--quiet-surface)",
+      textColor: "var(--quiet-ink)",
+      isCloseable: true,
+    },
     languageTabs: [
       { language: "curl" },
       { language: "javascript" },
