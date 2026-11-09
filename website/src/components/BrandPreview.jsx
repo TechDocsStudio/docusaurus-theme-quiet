@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import CodeBlock from "@theme/CodeBlock";
-import { palettes, restorePalette, savePalette } from "../brand.mjs";
+import {
+  palettes,
+  paletteEvent,
+  restorePalette,
+  savePalette,
+} from "../brand.mjs";
 
 export default function BrandPreview() {
   const [palette, setPalette] = useState(palettes[0]);
   useEffect(() => {
     const stored = restorePalette();
     if (stored) setPalette(stored);
+    const sync = (event) => setPalette(event.detail);
+    window.addEventListener(paletteEvent, sync);
+    return () => window.removeEventListener(paletteEvent, sync);
   }, []);
   function change(next) {
     setPalette(next);

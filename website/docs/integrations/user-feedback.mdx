@@ -1,81 +1,67 @@
 ---
 title: User feedback
-description: Add per-page thumbs up and thumbs down with PushFeedback.
+description: Add optional PushFeedback thumbs beside your documentation.
 ---
 
-Quiet supports [PushFeedback](https://pushfeedback.com/) for feedback below each document. The integration is optional and uses your own project.
+Quiet supports [PushFeedback](https://pushfeedback.com/) for per-page thumbs up and thumbs down.
 
 :::note Paid plans
 PushFeedback offers paid plans. Use code **QUIET** to get your first month free.
 :::
 
-## Install
+## Configure feedback
 
-```bash
-npm install pushfeedback-react
+If you already use `docusaurus-pushfeedback`, Quiet uses its project. Otherwise, provide the project ID and load the widget:
+
+```js title="docusaurus.config.js"
+export default {
+  themes: [
+    [
+      "docusaurus-theme-quiet",
+      {
+        feedback: { project: "YOUR_PROJECT_ID" },
+      },
+    ],
+  ],
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css",
+      },
+    },
+    {
+      tagName: "script",
+      attributes: {
+        type: "module",
+        src: "https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js",
+      },
+    },
+  ],
+};
 ```
 
-Wrap the footer in your site. The theme's footer remains intact:
+Replace `YOUR_PROJECT_ID` with your project's ID. Quiet does not load an SDK by itself. No project means no controls.
 
-```jsx title="src/theme/DocItem/Footer/index.jsx"
-import React, { useEffect } from "react";
-import Footer from "@theme-original/DocItem/Footer";
-import { ThumbsUp, ThumbsDown } from "lucide-react";
-import { FeedbackButton } from "pushfeedback-react";
-import { defineCustomElements } from "pushfeedback/loader";
-import "pushfeedback/dist/pushfeedback/pushfeedback.css";
+## Placement
 
-export default function DocFooter(props) {
-  useEffect(() => {
-    defineCustomElements(window);
-  }, []);
-  return (
-    <>
-      <div className="feedback-widget">
-        <span>Was this helpful?</span>
-        <div className="pushfeedback-thumbs-row">
-          <FeedbackButton
-            className="quiet-feedback-thumb"
-            project="YOUR_PROJECT_ID"
-            rating="1"
-            button-position="default"
-            button-style="default"
-            modal-position="center"
-            custom-font="true"
-          >
-            <span className="quiet-feedback-choice">
-              <ThumbsUp size={18} aria-hidden="true" />
-              <span className="quiet-feedback-label">Helpful</span>
-            </span>
-          </FeedbackButton>
-          <FeedbackButton
-            className="quiet-feedback-thumb"
-            project="YOUR_PROJECT_ID"
-            rating="0"
-            button-position="default"
-            button-style="default"
-            modal-position="center"
-            custom-font="true"
-          >
-            <span className="quiet-feedback-choice">
-              <ThumbsDown size={18} aria-hidden="true" />
-              <span className="quiet-feedback-label">Not helpful</span>
-            </span>
-          </FeedbackButton>
-        </div>
-      </div>
-      <Footer {...props} />
-    </>
-  );
-}
+Thumbs appear below the table of contents in the right sidebar. On mobile and pages without that sidebar, they appear below the document.
+
+Change the label or keep them below the document on every screen:
+
+```js
+feedback: {
+  project: "YOUR_PROJECT_ID",
+  label: "Was this useful?",
+  position: "footer",
+},
 ```
 
-Install `lucide-react` in your site if you use these icons. The visually hidden labels give both icon controls accessible names. Each button opens the configured feedback form with its rating selected.
-
-You do not need a floating feedback button as well. Keep collection fields and delivery settings in PushFeedback.
+Set `feedback: false` to remove them. Remove an old `DocItem/Footer` feedback override when adopting these controls, so the same form does not appear twice. Your copyright, page navigation and last-updated information remain intact.
 
 ## Verify
 
-Check the two forms, selected ratings, page URL, focus and close behavior. Submit tests only to a project intended for testing.
+Check desktop and mobile placement, both color modes and accessible button names. Each thumb opens your feedback form with its rating selected. Submit tests only to a project intended for testing.
 
 [PushFeedback's Docusaurus guide](https://docs.pushfeedback.com/installation/docusaurus#like-and-dislike-buttons)

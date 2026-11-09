@@ -63,3 +63,11 @@ The Biel migration uses Classic DocCardList for 73 navigation cards. Their desti
 The PushFeedback navbar uses the current public website mark and an editable text wordmark. Its mark renders square at 30px on desktop and 24px on mobile. The theme preserves image aspect ratios rather than compressing full-image logos.
 
 Dark-mode widget checks confirmed a white Biel search symbol on #191a18 and a white PushFeedback Send label on #2563eb. Filled actions keep the primary color while links can use a lighter dark-mode accent. Both consumer pages fit a 320px viewport; navigation cards become a single column. No AI question, rating or feedback submission was sent.
+
+## Page action controls
+
+The default menu reuses Biel's existing button without sending a question. Keyboard arrows navigate its items, Escape closes it and returns focus to the trigger. Copy actions report success; MCP command templates quote the server URL and name. A separate local build renders custom Copy link, Support and Copy body entries in exactly that dictionary order. A disabled-provider build with pageActions false has no controls or SDKs and restores the Classic footer edit link.
+
+At 320px, the menu remains inside the viewport and one feedback control group is visible below the document. At desktop width, one group is in the right rail and the footer group is hidden. Missing MCP configuration produces no entries. The package still includes no service SDK or fixed project IDs.
+
+Copy page is the default primary action and always produces Markdown. Conversion tests cover headings, nested lists, absolute links, GFM tables, fenced code and removal of document controls. The source action is conditional on a configured Markdown export. Browser checks confirm one visible copy/check icon per code control and temporary check marks on individual page/MCP copy actions. The demo palette control synchronizes the Branding inputs and configuration and survives reloads. It lives only in the website, outside the 45-file theme package.

@@ -36,8 +36,8 @@ for (const file of files) {
 const pkg = require("../packages/theme/package.json");
 assert.equal(
   Object.keys(pkg.dependencies || {}).join(","),
-  "lucide-react",
-  "Only the shared icon renderer belongs in runtime dependencies.",
+  "lucide-react,turndown,turndown-plugin-gfm",
+  "Only shared icons and Markdown conversion belong in runtime dependencies.",
 );
 console.log(
   `Package checked: ${files.length} files, ${packed.unpackedSize} unpacked bytes, no website, fixtures or mandatory SDK dependencies.`,

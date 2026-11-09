@@ -42,3 +42,5 @@ Search, AI assistance and feedback are optional integrations. The theme loads no
 The footer shows **Powered by Quiet** by default. Set `showCredit: false` to remove it.
 
 MIT · By [TechDocs Studio](https://techdocs.studio).
+
+[Page actions](https://quiet.techdocs.studio/components/page-actions) are an ordered, extensible dictionary. Add links or copy buttons, configure MCP commands, or disable the module. Optional PushFeedback thumbs sit beside the document on desktop.

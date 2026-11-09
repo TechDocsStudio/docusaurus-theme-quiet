@@ -38,3 +38,5 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - API operations use the full available main column for reference and explorer panels. Guide prose retains its reading width. The website is hosted at quiet.techdocs.studio, with Netlify serving the root path.
 
 - Use Classic DocCardList for navigation cards rather than handwritten card HTML. Keep cards separated and free of link underlines. Preserve logo aspect ratios. Use Steps for detailed procedures and retain existing Markdown heading IDs. Filled widget actions keep the primary brand color and a contrasting foreground in both modes; dark link accents are separate.
+
+- Page actions preserve the insertion order of the owner's dictionary, including custom link/copy actions. Missing MCP configuration creates no MCP entries. Never execute copied commands. Reuse the host's assistant and feedback SDKs. Disabled page actions restore Classic's edit link. Feedback defaults to the right rail, with a document-footer fallback on mobile or pages without a rail.

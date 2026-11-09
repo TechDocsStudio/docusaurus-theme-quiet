@@ -45,6 +45,16 @@ module.exports = {
   ],
   plugins: [
     [
+      "docusaurus-plugin-llms",
+      {
+        generateLLMsTxt: true,
+        generateLLMsFullTxt: true,
+        generateMarkdownFiles: true,
+        excludeImports: true,
+        removeDuplicateHeadings: true,
+      },
+    ],
+    [
       "docusaurus-plugin-openapi-docs",
       {
         id: "quiet-demo",
@@ -97,7 +107,17 @@ module.exports = {
   themes: [
     "docusaurus-theme-openapi-docs",
     "@docusaurus/theme-mermaid",
-    "docusaurus-theme-quiet",
+    [
+      "docusaurus-theme-quiet",
+      {
+        pageActions: {
+          copyPage: {},
+          askAi: {},
+          viewSource: { url: "docs/{docId}.md" },
+          mcp: biel ? { url: biel.mcpServerUrl, name: "quiet" } : false,
+        },
+      },
+    ],
   ],
   themeConfig: {
     languageTabs: [
@@ -128,6 +148,7 @@ module.exports = {
           label: "GitHub",
           position: "right",
         },
+        { type: "custom-palette", position: "right" },
       ],
     },
     colorMode: { defaultMode: "light", respectPrefersColorScheme: true },

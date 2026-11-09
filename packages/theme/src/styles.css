@@ -721,7 +721,6 @@ biel-bot {
   flex-wrap: wrap;
   gap: 1rem;
   padding-block: 1.5rem;
-  border-top: 1px solid var(--quiet-line);
   font-size: 14px;
 }
 .pushfeedback-thumbs-row {
@@ -918,13 +917,22 @@ html .openapi-explorer__response-container:hover {
   transition: opacity 0.12s ease;
 }
 .theme-code-block .quiet-code-copy .lucide-copy {
+  opacity: 1;
   transform: none !important;
 }
 .theme-code-block .quiet-code-copy .lucide-check {
+  opacity: 0;
   top: 0;
   left: 0;
   transform: none !important;
   color: var(--quiet-ink);
+}
+/* OpenAPI also imports Classic's icon rules. Keep its copied state explicit. */
+.theme-code-block .quiet-code-copy[class*="copyButtonCopied"] .lucide-copy {
+  opacity: 0;
+}
+.theme-code-block .quiet-code-copy[class*="copyButtonCopied"] .lucide-check {
+  opacity: 1;
 }
 .quiet-table-scroll {
   max-width: 100%;
@@ -1127,4 +1135,149 @@ html .theme-api-markdown details.openapi-markdown__details > summary::before {
 }
 .quiet-footer-minimal .quiet-theme-credit {
   margin-top: 0;
+}
+
+/* Page tools share the breadcrumb row and keep their implementation out of prose. */
+.quiet-doc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 0.5rem 1.5rem;
+}
+.quiet-doc-header .theme-doc-breadcrumbs {
+  margin: 0;
+  min-width: 0;
+}
+.quiet-doc-actions {
+  position: relative;
+  margin-inline-start: auto;
+  font-size: 14px;
+  flex-shrink: 0;
+  z-index: 5;
+}
+.quiet-actions-control {
+  display: inline-flex;
+  border: 1px solid var(--quiet-line);
+  border-radius: 8px;
+  background: var(--quiet-paper);
+}
+.quiet-actions-control > :last-child {
+  border-inline-start: 1px solid var(--quiet-line);
+  padding-inline: 0.5rem;
+}
+.quiet-actions-control button,
+.quiet-actions-control a,
+.quiet-actions-menu button,
+.quiet-actions-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  background: transparent;
+  padding: 0.45rem 0.65rem;
+  color: var(--quiet-ink);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.quiet-actions-control button:hover,
+.quiet-actions-control a:hover,
+.quiet-actions-menu button:hover,
+.quiet-actions-menu a:hover {
+  background: var(--quiet-surface);
+  text-decoration: none;
+}
+.quiet-actions-control svg,
+.quiet-actions-menu svg {
+  flex: none;
+  stroke-width: 1.6;
+}
+.quiet-actions-menu {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 0.5rem);
+  min-width: 235px;
+  max-width: calc(100vw - 2rem);
+  max-height: min(32rem, calc(100dvh - 12rem));
+  overflow-y: auto;
+  padding: 0.35rem;
+  border: 1px solid var(--quiet-line);
+  border-radius: 10px;
+  background: var(--quiet-paper);
+  box-shadow: 0 8px 24px #00000012;
+}
+.quiet-actions-menu button,
+.quiet-actions-menu a {
+  width: 100%;
+  text-align: start;
+  border-radius: 5px;
+}
+.quiet-action-status:not(:empty) {
+  display: block;
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 0.5rem);
+  width: max-content;
+  max-width: 260px;
+  background: var(--quiet-paper);
+  border: 1px solid var(--quiet-line);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  color: var(--quiet-muted);
+}
+.quiet-doc-rail {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+}
+.quiet-doc-rail .theme-doc-toc-desktop {
+  position: static;
+  max-height: calc(100vh - var(--ifm-navbar-height) - 12rem);
+}
+.quiet-page-feedback {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+.quiet-doc-rail .quiet-page-feedback {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+.theme-doc-footer-edit-meta-row .col:empty {
+  display: none;
+}
+@media (min-width: 997px) {
+  .quiet-feedback-mobile {
+    display: none;
+  }
+}
+@media (max-width: 996px) {
+  .quiet-doc-rail {
+    display: none;
+  }
+}
+
+.quiet-actions-control > :first-child {
+  border-start-start-radius: 7px;
+  border-end-start-radius: 7px;
+}
+.quiet-actions-control > :last-child {
+  border-start-end-radius: 7px;
+  border-end-end-radius: 7px;
+}
+.quiet-actions-control .quiet-biel-mark,
+.quiet-actions-menu .quiet-biel-mark {
+  fill: currentColor;
+  stroke: none;
+}
+.quiet-action-image {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex: none;
+}
+
+.theme-doc-version-badge + .openapi__heading {
+  margin-top: 0.65rem;
 }

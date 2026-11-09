@@ -1,0 +1,127 @@
+---
+title: Page actions
+description: Copy pages as Markdown, open an assistant and configure document actions.
+---
+
+**Copy page** copies the document as Markdown. The adjacent menu holds optional actions for your assistant, source file, editor and MCP server.
+
+## Configure the menu
+
+`pageActions` is an ordered dictionary. Your keys appear first, in the order written. Omitted defaults follow them. The first visible action becomes the main button. Set an entry to `false` to remove it.
+
+```js title="docusaurus.config.js"
+themes: [
+  ["docusaurus-theme-quiet", {
+    pageActions: {
+      copyPage: {},
+      askAi: {},
+      support: {label: "Contact support", url: "https://example.com/support"},
+      editPage: {label: "Suggest a change"},
+    },
+  }],
+],
+```
+
+| Entry        | Shown when                                                 |
+| ------------ | ---------------------------------------------------------- |
+| `copyPage`   | Enabled by default; always copies Markdown                 |
+| `askAi`      | Biel has a project, or you configure an assistant selector |
+| `viewSource` | You provide a Markdown export URL                          |
+| `editPage`   | Docusaurus provides an `editUrl`                           |
+| `mcp`        | You provide a server URL                                   |
+
+Disabling `editPage` restores Classic's footer edit link. Disable the whole module with `pageActions: false`.
+
+## Markdown
+
+Copy page works without a Markdown export plugin: Quiet converts the rendered article to Markdown, including headings, links, lists, tables and code. Navigation and copy controls are excluded.
+
+If your site generates Markdown files, configure their URL. Copy page prefers that file, falling back to the rendered article if it is unavailable. **View source** opens the file in a new tab and stays hidden without a configured URL.
+
+```js
+pageActions: {
+  copyPage: {},
+  viewSource: {url: "docs/{docId}.md", exclude: ["api-v1/"]},
+},
+```
+
+Relative URLs resolve under the site's base URL. `{docId}` is the document ID. Check the paths for each locale and version. `exclude` lists document ID prefixes without exports. See [Markdown exports](../integrations/ai-access.mdx).
+
+To use exports for copying without showing View source, set the URL on `copyPage` and set `viewSource: false`.
+
+### Custom conversion
+
+For specialized content, override the client-side helper at `src/theme/Quiet/CopyPage/index.js`. Return a Markdown string:
+
+```js title="src/theme/Quiet/CopyPage/index.js"
+import getPageMarkdown from "@theme-original/Quiet/CopyPage";
+
+export default async function copyPage(context) {
+  const markdown = await getPageMarkdown(context);
+  return `${markdown}\n\nSource: ${context.url}`;
+}
+```
+
+The helper receives `{element, url, markdownUrl}`. Keep functions in this theme override; the configuration dictionary contains serializable values.
+
+## Custom actions
+
+Add a link or text to copy. Copy actions show a temporary check mark. Commands are copied, never executed.
+
+```js
+pageActions: {
+  copyPage: {},
+  reviewPrompt: {
+    label: "Copy review prompt",
+    copy: "Review this documentation page: {pageUrl}",
+  },
+  issue: {
+    label: "Report a docs issue",
+    url: "https://github.com/example/docs/issues/new?body={pageUrl}",
+  },
+},
+```
+
+In URLs, `{pageUrl}` becomes the encoded canonical URL. In copied text it stays readable. `{sourcePath}` is the source file's path relative to the site directory.
+
+## Ask AI
+
+Biel is detected from `docusaurus-biel`, `customFields.biel.project` or `customFields.bielProject`. The action opens the existing widget without submitting a question. For another assistant, set its trigger selector:
+
+```js
+pageActions: {
+  askAi: {label: "Ask support", selector: "#support-assistant-trigger", icon: "message-circle"},
+},
+```
+
+The default Ask AI icon is Biel's mark. Set `icon` to `false`, a supported name, or `{src: "img/assistant.svg"}`. Supported names: `biel`, `sparkles`, `bot`, `search`, `message-circle`, `copy`, `link`, `external-link`, `file` and `terminal`. Custom actions accept the same option.
+
+## MCP
+
+No MCP entries appear until you configure a server URL. The default entries copy the URL or a client setup command:
+
+```js
+pageActions: {
+  mcp: {
+    url: "https://docs.example.com/mcp",
+    name: "product-docs",
+    clients: {
+      codex: {},
+      claudeCode: {label: "Copy Claude Code command"},
+      url: {label: "Copy server URL"},
+    },
+  },
+},
+```
+
+Client keys follow the same ordering rules. Add a client, override a command, or disable an entry:
+
+```js
+clients: {
+  codex: {command: "codex mcp add {name} --url {url}"},
+  claudeCode: false,
+  otherClient: {label: "Copy client setup", command: "my-client add {name} {url}"},
+},
+```
+
+`{name}` and `{url}` become quoted shell arguments. Use a public endpoint or a server that authenticates the client separately. Site configuration is public: keep credentials out of URLs and commands.

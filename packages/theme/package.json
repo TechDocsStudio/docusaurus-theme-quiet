@@ -45,6 +45,8 @@
     "access": "public"
   },
   "dependencies": {
-    "lucide-react": "^0.468.0"
+    "lucide-react": "^0.468.0",
+    "turndown": "^7.2.5",
+    "turndown-plugin-gfm": "^1.0.2"
   }
 }

@@ -5,11 +5,13 @@ description: The complete Quiet theme configuration reference.
 
 ## Theme options
 
-| Option            | Type                | Default   |
-| ----------------- | ------------------- | --------- |
-| `accentColor`     | Six-digit hex color | `#191a18` |
-| `accentColorDark` | Six-digit hex color | `#e9ecef` |
-| `showCredit`      | Boolean             | `true`    |
+| Option            | Type                          | Default                 |
+| ----------------- | ----------------------------- | ----------------------- |
+| `accentColor`     | Six-digit hex color           | `#191a18`               |
+| `accentColorDark` | Six-digit hex color           | `#e9ecef`               |
+| `showCredit`      | Boolean                       | `true`                  |
+| `pageActions`     | Ordered dictionary or `false` | Built-in actions        |
+| `feedback`        | Object or `false`             | Sidebar when configured |
 
 Unknown options and invalid colors fail the build with an explanation.
 
@@ -26,6 +28,8 @@ export default {
   ],
 };
 ```
+
+See [Page actions](./components/page-actions.mdx) for the action dictionary, custom buttons and MCP commands. [User feedback](./integrations/user-feedback.mdx) configures the thumbs.
 
 ## Footer credit
 

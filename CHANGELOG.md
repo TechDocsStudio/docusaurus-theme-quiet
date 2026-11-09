@@ -2,6 +2,10 @@
 
 ## 0.1.0 — unreleased
 
+- Add ordered, extensible page actions. Copy page copies Markdown, with optional Ask AI, source links, editing and MCP commands.
+- Add a demo-only navbar button that cycles through persistent brand palettes.
+- Move optional page feedback into the desktop right rail, with a mobile fallback.
+
 - Space navigation cards consistently, preserve logo proportions and support Markdown headings inside steps.
 - Keep filled widget controls legible in dark mode without changing the link palette.
 

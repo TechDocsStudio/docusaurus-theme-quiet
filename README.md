@@ -29,6 +29,7 @@ Use Docusaurus settings for your logo, navigation and content. Configure colors 
 - Light and dark modes, readable typography and compact controls.
 - Guides, API references, code, callouts, tables and diagrams.
 - Optional search, Ask AI and page feedback. Your provider stays yours.
+- Configurable page actions, Markdown links and MCP setup commands.
 
 Quiet keeps Classic's navigation, routing, keyboard controls and metadata.
 

@@ -1,3 +1,4 @@
+export const paletteEvent = "quiet:palette";
 export const storageKey = "quiet-brand-v1";
 export const palettes = [
   { name: "Neutral", accentColor: "#191a18", accentColorDark: "#e9ecef" },
@@ -46,6 +47,7 @@ export function restorePalette() {
 export function savePalette(value) {
   if (!validPalette(value)) return;
   applyPalette(value);
+  window.dispatchEvent(new CustomEvent(paletteEvent, { detail: value }));
   try {
     window.localStorage.setItem(
       storageKey,

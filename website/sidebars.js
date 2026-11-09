@@ -21,6 +21,7 @@ export default {
         "components/disclosures",
         "components/tables",
         "components/cards",
+        "components/page-actions",
         "components/steps",
         "components/diagrams",
       ],
