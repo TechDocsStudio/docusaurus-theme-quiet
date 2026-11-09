@@ -7,7 +7,7 @@ Local evaluation on November 9, 2026. This is an unpublished first release.
 - Node 24.22.2, npm 11.9.0, Docusaurus Classic 3.10.2 and React 18.3.1.
 - Configuration tests cover both color modes, package entry points, unknown options and CSS injection rejection.
 - Prettier, production build and distribution checks pass.
-- The documentation build contains 29 HTML pages. The local-link checker checks 852 links and assets, titles and one H1 per page.
+- The documentation build contains 29 HTML pages. The local-link checker checks 1,070 links and assets in the production root build, titles and one H1 per page.
 - The tarball contains 35 files, about 44 KB unpacked. No website, fonts, consumer snapshots, credentials or service SDKs are packaged. Lucide React is the one UI dependency.
 
 The footer credit is present by default, including when no host footer is configured. A separate production build with `showCredit: false` removes the credit across all 29 HTML pages while preserving a configured copyright. Both consumer builds retain their copyright and show exactly one credit. The default plugin namespace is retained by option validation.
@@ -51,3 +51,7 @@ Biel's optional search, floating Ask AI and two per-page feedback buttons render
 React 19 is in the peer range but has not been tested here. RTL styles are included but have not had a complete language review. This is not a full accessibility certification. Consumer dependency graphs are inherited from the source snapshots. The optional OpenAPI/Postman tooling has upstream transitive audit findings; those dependencies are excluded from the distributed theme.
 
 No npm release or consumer deployment is performed. Optional provider IDs are configured by the host site. The Quiet documentation site defaults to its public Biel and PushFeedback projects. Empty environment overrides disable them independently. The distributed theme contains neither a search engine nor these project IDs.
+
+## Launch preparation
+
+The README includes an actual browser screenshot captured with a 1280 by 800 viewport override (the browser exports a 1265 by 791 image). API operations fill the available main column: at this viewport the main and API content measured 965px, with no page overflow. Diagrams are listed only under Components. Used by is a separate page. The production build uses https://quiet.techdocs.studio/ with root asset paths. The first npm release remains manual.

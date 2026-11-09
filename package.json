@@ -15,7 +15,8 @@
     "preview:biel": "node scripts/preview-consumer.cjs biel",
     "preview:pushfeedback": "node scripts/preview-consumer.cjs pushfeedback",
     "check:package": "node scripts/check-package.cjs",
-    "check:site": "node scripts/check-site.cjs"
+    "check:site": "node scripts/check-site.cjs",
+    "release:check": "npm test && npm run lint && npm run build && npm run check:site && npm run check:package && npm run pack:theme"
   },
   "devDependencies": {
     "prettier": "3.9.10",

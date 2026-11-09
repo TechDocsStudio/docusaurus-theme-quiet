@@ -15,8 +15,10 @@ const biel = bielProject
 
 module.exports = {
   title: "Quiet",
-  url: "https://techdocsstudio.github.io",
-  baseUrl: "/docusaurus-theme-quiet/",
+  url: "https://quiet.techdocs.studio",
+  baseUrl:
+    process.env.QUIET_BASE_URL ??
+    (process.env.NETLIFY ? "/" : "/docusaurus-theme-quiet/"),
   favicon: "img/quiet.svg",
   clientModules: [
     require.resolve("./src/mermaid-client.js"),

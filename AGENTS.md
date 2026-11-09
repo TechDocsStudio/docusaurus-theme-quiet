@@ -17,7 +17,7 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - No default emoji or decorative icons on generated cards. Omit the breadcrumb home icon because the brand already links home.
 - Use Lucide icons with a consistent thin stroke. Sidebar carets and accordion carets stay small. Pagination is an unboxed text link with a top divider.
 - Center navbar search on wide screens and preserve mobile navigation. Search and assistant providers stay optional.
-- Integrations are organized by purpose: Ask AI, Search, User feedback, Diagrams, OpenAPI reference and Access for AI tools.
+- Integrations are organized by purpose: Ask AI, Search, User feedback, OpenAPI reference and Access for AI tools. Diagrams belong only under Components.
 - Document icon plus text, full-image logos, favicons and independent logo, heading, body and code fonts.
 
 - Default accents are neutral. A selected brand palette also colors active navigation, footer links, tabs, focus states and primary buttons. Keep semantic callout colors independent.
@@ -30,7 +30,9 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - API media type and schema tabs are compact text controls with no boxed borders or duplicated dividers. A single media type appears as a simple label. Edit links use a 16px Lucide SquarePen, aligned with inline flex.
 
 - The footer shows an optional Powered by Quiet link to https://quiet.techdocs.studio by default, including sites with no configured footer. `showCredit: false` removes it. Preserve host copyright, footer links and logo.
-- Why Quiet explains the minimal, opinionated presentation layer over existing components and optional integrations, and identifies it as the default theme TechDocs Studio uses for client documentation projects. Identify Biel.ai and PushFeedback as the initial documentation projects being adapted.
+- Why Quiet explains the minimal, opinionated presentation layer over existing components and optional integrations, and identifies it as the default theme TechDocs Studio uses for client documentation projects. Keep project names and short descriptions on a separate Used by page.
 
 - Do not ship a custom search engine. The demo uses the official Biel control and delegates to installed providers when disabled. With no provider, hide the empty search container. Keep alternate providers supported without promoting them in the docs.
 - Align the first breadcrumb text with the article. Feedback thumb controls are square: 36px with a precise pointer, 44px with a coarse pointer. Biel actions, hover states and user messages follow the selected palette.
+
+- API operations use the full available main column for reference and explorer panels. Guide prose retains its reading width. The website is hosted at quiet.techdocs.studio, with Netlify serving the root path.

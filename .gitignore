@@ -3,6 +3,7 @@ build/
 .docusaurus/
 .artifacts/
 .local/
+.netlify/
 .DS_Store
 *.log
 .env*

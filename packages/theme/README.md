@@ -1,28 +1,44 @@
-# docusaurus-theme-quiet
+# Quiet
 
-A restrained Docusaurus theme layered over Classic. MIT licensed.
+A minimal Docusaurus theme built on Classic.
 
-Requires Docusaurus 3.10.x with the Classic preset. Add the package to `themes` after Classic:
+[Documentation](https://quiet.techdocs.studio) · [Components](https://quiet.techdocs.studio/components) · [API demo](https://quiet.techdocs.studio/api/quiet-demo-api)
+
+![Quiet documentation](https://raw.githubusercontent.com/TechDocsStudio/docusaurus-theme-quiet/main/assets/quiet-preview.jpg)
+
+## Install
+
+Requires Docusaurus 3.10.x with the Classic preset.
+
+```sh
+npm install docusaurus-theme-quiet
+```
 
 ```js
 export default {
   presets: ["classic"],
-  themes: [
-    [
-      "docusaurus-theme-quiet",
-      {
-        accentColor: "#191a18",
-        accentColorDark: "#e9ecef",
-      },
-    ],
-  ],
+  themes: ["docusaurus-theme-quiet"],
 };
 ```
 
-Use standard Docusaurus logo and navigation settings. `accentColor` and `accentColorDark` accept six-digit hex colors. Fonts, content width and surfaces are configurable with `--quiet-*` CSS variables.
+## Configure
 
-The package includes MDX cards and steps. Tabs, code, admonitions and disclosures retain Classic behavior. It makes no third-party requests. Biel and PushFeedback are optional, separately configured integrations.
+```js
+themes: [
+  [
+    "docusaurus-theme-quiet",
+    {
+      accentColor: "#23734a",
+      accentColorDark: "#8bc9a5",
+    },
+  ],
+];
+```
 
-Documentation, examples, source and release status: https://github.com/TechDocsStudio/docusaurus-theme-quiet
+Use Docusaurus settings for logos and navigation. CSS variables control fonts, width and surfaces. Quiet supports light and dark modes, adds MDX cards and steps, and keeps Classic's routing, keyboard behavior and metadata.
 
-The footer includes an optional Powered by Quiet link to https://quiet.techdocs.studio. Set `showCredit: false` in the theme options to remove it. Existing footer content is preserved.
+Search, AI assistance and feedback are optional integrations. The theme loads no external fonts or services.
+
+The footer shows **Powered by Quiet** by default. Set `showCredit: false` to remove it.
+
+MIT · By [TechDocs Studio](https://techdocs.studio).

@@ -186,6 +186,11 @@ h1 {
   max-width: var(--quiet-content-width, 48rem);
   padding-block: 0.5rem 2rem;
 }
+/* API operations use the available article width for reference and explorer. */
+main > .container:has(.theme-api-markdown),
+.theme-doc-markdown:has(.theme-api-markdown) {
+  max-width: none;
+}
 .markdown > h2 {
   font-size: 1.8rem;
   margin-top: 2.75rem;

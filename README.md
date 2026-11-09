@@ -1,72 +1,44 @@
 # Quiet
 
-A Docusaurus theme focused on readable documentation. Built on Classic, with configurable branding and optional Biel and PushFeedback integrations.
+A minimal Docusaurus theme built on Classic.
 
-**Status:** first release in development. The npm package is not published yet. Use the local tarball for evaluation.
+[Documentation](https://quiet.techdocs.studio) · [Components](https://quiet.techdocs.studio/components) · [API demo](https://quiet.techdocs.studio/api/quiet-demo-api) · [Used by](https://quiet.techdocs.studio/used-by)
 
-## Run the docs
+![Quiet documentation at a 13-inch laptop viewport](assets/quiet-preview.jpg)
 
-```sh
-npm ci
-npm start
-```
-
-Open http://localhost:4210/docusaurus-theme-quiet/.
-
-## Use the theme
+## Install
 
 ```sh
-npm run pack:theme
-# In another Docusaurus site:
-npm install /path/to/docusaurus-theme-quiet-0.1.0.tgz
+npm install docusaurus-theme-quiet
 ```
 
 ```js
 // docusaurus.config.js
 export default {
   presets: ["classic"],
-  themes: [
-    [
-      "docusaurus-theme-quiet",
-      {
-        accentColor: "#191a18",
-        accentColorDark: "#e9ecef",
-      },
-    ],
-  ],
+  themes: ["docusaurus-theme-quiet"],
 };
 ```
 
-Use standard Docusaurus configuration for logos, navigation, locales and versions. Use CSS variables for fonts, width and surfaces. The theme does not load external fonts or services.
+The first npm release is pending. Until then, run `npm run pack:theme` and install the tarball from `.artifacts/`.
 
-## What is included
+## Make it yours
 
-- A restrained layout for articles, navigation, code, tables, callouts, tabs and disclosures.
-- Native Classic behavior for accessibility, mobile navigation, routing, metadata and code controls.
-- MDX `Card`, `CardGrid`, `Steps` and `Step` components.
-- Light and dark palettes, 17px reading text and 14px minimum UI text.
-- Integration guides for Biel search, Ask AI and PushFeedback, without mandatory service dependencies.
-- Lucide icons, icon-free generated cards, small carets and centered navbar search.
-- A documentation site with rendered examples, a persistent branding playground and a generated OpenAPI demo with its own sidebar.
+Use Docusaurus settings for your logo, navigation and content. Configure colors through the theme options, and fonts through CSS variables.
 
-## Repository
+- Light and dark modes, readable typography and compact controls.
+- Guides, API references, code, callouts, tables and diagrams.
+- Optional search, Ask AI and page feedback. Your provider stays yours.
 
-```text
-packages/theme/   Publishable theme. No build step.
-website/          Documentation and component examples.
-scripts/          Isolated consumer previews and validation.
-tests/            Plugin configuration and distribution tests.
-.local/           Ignored consumer snapshots. Never published.
+Quiet keeps Classic's navigation, routing, keyboard controls and metadata.
+
+## Develop
+
+```sh
+npm ci
+npm start
 ```
 
-Targets Docusaurus 3.10.x. See [CONTRIBUTING.md](CONTRIBUTING.md) for consumer testing and release preparation. Existing custom CSS and swizzles can override a theme and should be reviewed during adoption.
+[Contributing](CONTRIBUTING.md) · [Release guide](RELEASING.md) · [Validation](VALIDATION.md)
 
-Validation details: [VALIDATION.md](VALIDATION.md).
-
-## Name
-
-Quiet describes the design's restraint. On November 9, 2026, the exact npm name `docusaurus-theme-quiet` and GitHub repository-name search had no matches. This check does not establish trademark rights or reserve a package name.
-
-## License
-
-MIT. The website's optional bundled fonts retain their separate SIL Open Font Licenses. Those font files are not included in the npm theme.
+MIT · By [TechDocs Studio](https://techdocs.studio).

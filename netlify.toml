@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "website/build"
+
+[build.environment]
+  NODE_VERSION = "24"
+  QUIET_BASE_URL = "/"
+
+[[redirects]]
+  from = "/integrations/diagrams"
+  to = "/components/diagrams"
+  status = 301
+
+[[redirects]]
+  from = "/docusaurus-theme-quiet/*"
+  to = "/:splat"
+  status = 301

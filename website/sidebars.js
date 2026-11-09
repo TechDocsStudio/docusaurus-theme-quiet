@@ -5,6 +5,7 @@ export default {
   docs: [
     "installation",
     "why-quiet",
+    "used-by",
     "branding",
     "navigation",
     "writing",
@@ -36,7 +37,6 @@ export default {
         "integrations/ask-ai",
         "integrations/search",
         "integrations/user-feedback",
-        "integrations/diagrams",
         "integrations/openapi",
         "integrations/ai-access",
       ],

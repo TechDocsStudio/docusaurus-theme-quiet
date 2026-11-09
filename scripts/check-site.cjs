@@ -2,7 +2,9 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const config = require("../website/docusaurus.config.js");
-const build = path.resolve(__dirname, "../website/build");
+const build = process.argv[2]
+  ? path.resolve(process.argv[2])
+  : path.resolve(__dirname, "../website/build");
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const file = path.join(dir, entry.name);
