@@ -35,12 +35,6 @@ themes: [
 ];
 ```
 
-Use Docusaurus settings for logos and navigation. CSS variables control fonts, width and surfaces. Quiet supports light and dark modes, adds MDX cards and steps, and keeps Classic's routing, keyboard behavior and metadata.
-
-Search, AI assistance and feedback are optional integrations. The theme loads no external fonts or services.
-
-The footer shows **Powered by Quiet** by default. Set `showCredit: false` to remove it.
+[See the documentation](https://quiet.techdocs.studio/configuration) for more options.
 
 MIT · By [TechDocs Studio](https://techdocs.studio).
-
-[Page actions](https://quiet.techdocs.studio/components/page-actions) are an ordered, extensible dictionary. Add links or copy buttons, configure MCP commands, or disable the module. Optional PushFeedback thumbs sit beside the document on desktop.
