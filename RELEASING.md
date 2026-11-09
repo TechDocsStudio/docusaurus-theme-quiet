@@ -23,7 +23,7 @@ npm publish --workspace docusaurus-theme-quiet --access public
 npm view docusaurus-theme-quiet@0.1.0 version
 ```
 
-After publication, remove the first-release notice from the root README. Tag the release and update the consumer PRs from their vendored tarball to the registry version:
+For a first release, remove pending-publication notices from the README and installation guide after publishing. Tag the released commit. Update consumer sites from any vendored tarball to the registry version:
 
 ```sh
 npm install docusaurus-theme-quiet@0.1.0

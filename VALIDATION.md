@@ -1,14 +1,14 @@
 # Validation
 
-Local evaluation on November 9, 2026. This is an unpublished first release.
+Release validation for 0.1.0 on November 9, 2026.
 
 ## Package and documentation
 
 - Node 24.22.2, npm 11.9.0, Docusaurus Classic 3.10.2 and React 18.3.1.
 - Configuration tests cover both color modes, package entry points, unknown options and CSS injection rejection.
 - Prettier, production build and distribution checks pass.
-- The documentation build contains 29 HTML pages. The local-link checker checks 1,070 links and assets in the production root build, titles and one H1 per page.
-- The tarball contains 35 files, about 44 KB unpacked. No website, fonts, consumer snapshots, credentials or service SDKs are packaged. Lucide React is the one UI dependency.
+- The documentation build contains 30 HTML pages. The local-link checker checks 913 links and assets in the production root build, titles and one H1 per page.
+- The tarball contains 45 files, about 75 KB unpacked. No website, fonts, consumer snapshots, credentials or service SDKs are packaged. Lucide React supplies icons; Turndown and its GFM plugin convert rendered documents to Markdown.
 
 The footer credit is present by default, including when no host footer is configured. A separate production build with `showCredit: false` removes the credit across all 29 HTML pages while preserving a configured copyright. Both consumer builds retain their copyright and show exactly one credit. The default plugin namespace is retained by option validation.
 
@@ -50,7 +50,7 @@ Biel's optional search, floating Ask AI and two per-page feedback buttons render
 
 React 19 is in the peer range but has not been tested here. RTL styles are included but have not had a complete language review. This is not a full accessibility certification. Consumer dependency graphs are inherited from the source snapshots. The optional OpenAPI/Postman tooling has upstream transitive audit findings; those dependencies are excluded from the distributed theme.
 
-No npm release or consumer deployment is performed. Optional provider IDs are configured by the host site. The Quiet documentation site defaults to its public Biel and PushFeedback projects. Empty environment overrides disable them independently. The distributed theme contains neither a search engine nor these project IDs.
+The consumer documentation sites are deployed from their main branches. Optional provider IDs are configured by the host site. The Quiet documentation site defaults to its public Biel and PushFeedback projects. Empty environment overrides disable them independently. The distributed theme contains neither a search engine nor these project IDs.
 
 ## Launch preparation
 

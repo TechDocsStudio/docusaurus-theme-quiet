@@ -20,8 +20,6 @@ export default {
 };
 ```
 
-The first npm release is pending. Until then, run `npm run pack:theme` and install the tarball from `.artifacts/`.
-
 ## Make it yours
 
 Use Docusaurus settings for your logo, navigation and content. Configure colors through the theme options, and fonts through CSS variables.

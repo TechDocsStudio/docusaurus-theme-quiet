@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — unreleased
+## 0.1.0 — 2026-11-09
 
 - Add ordered, extensible page actions. Copy page copies Markdown, with optional Ask AI, source links, editing and MCP commands.
 - Add a demo-only navbar button that cycles through persistent brand palettes.
