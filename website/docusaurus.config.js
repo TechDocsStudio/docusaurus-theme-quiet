@@ -108,6 +108,7 @@ module.exports = {
           position: "left",
           activeBaseRegex: "^/api/",
         },
+        { to: "/why-quiet", label: "Why Quiet", position: "right" },
         {
           href: "https://github.com/TechDocsStudio/docusaurus-theme-quiet",
           label: "GitHub",
@@ -121,6 +122,5 @@ module.exports = {
       darkTheme: themes.vsDark,
       additionalLanguages: ["bash", "json"],
     },
-    footer: { copyright: "Quiet · MIT license" },
   },
 };

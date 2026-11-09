@@ -12,3 +12,6 @@
 - Add a generated OpenAPI demo alongside the guides, each with its own sidebar.
 - Refine sidebar insets, Lucide copy feedback, semantic callouts and wordmark spacing.
 - Add a keyboard-scrollable wide-table example.
+
+- Add an optional default Powered by Quiet footer and a Why Quiet page.
+- Remove the search input's focus outline inside the local search dialog.

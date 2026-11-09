@@ -7,14 +7,17 @@ Local evaluation on November 9, 2026. This is an unpublished first release.
 - Node 24.22.2, npm 11.9.0, Docusaurus Classic 3.10.2 and React 18.3.1.
 - Configuration tests cover both color modes, package entry points, unknown options and CSS injection rejection.
 - Prettier, production build and distribution checks pass.
-- The documentation build contains 28 HTML pages. The local-link checker checks 1,499 links and assets, titles and one H1 per page.
-- The tarball contains 32 files, about 40 KB unpacked. No website, fonts, consumer snapshots, credentials or service SDKs are packaged. Lucide React is the one UI dependency.
+- The documentation build contains 29 HTML pages. The local-link checker checks 1,635 links and assets, titles and one H1 per page.
+- The tarball contains 35 files, about 42 KB unpacked. No website, fonts, consumer snapshots, credentials or service SDKs are packaged. Lucide React is the one UI dependency.
+
+The footer credit is present by default, including when no host footer is configured. A separate production build with `showCredit: false` removes the credit across all 29 HTML pages while preserving a configured copyright. Both consumer builds retain their copyright and show exactly one credit. The default plugin namespace is retained by option validation.
 
 ## Browser checks
 
 - Light and dark mode, readable body text and 14px code.
 - Generated category cards contain no default emoji icons. Category links and descriptions remain available.
 - Breadcrumbs omit the redundant home icon. Category breadcrumbs remain.
+- The focused search input has no border, outline or shadow; the dialog and other controls retain their keyboard behavior.
 - Navbar search opens a native dialog, filters the documentation index and follows a result. Its default implementation makes no external requests.
 - Sidebar active backgrounds retain an inset from the outer divider. The icon-to-wordmark gap is approximately 6px.
 - API media-type and schema tabs are compact and borderless. A single media type is a 20px text label. The body tab is approximately 32px tall. Schema carets no longer overlap the heading.

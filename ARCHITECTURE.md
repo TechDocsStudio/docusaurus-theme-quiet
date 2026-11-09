@@ -12,7 +12,7 @@ The repository uses npm workspaces for the package and documentation site. Font 
 
 ## Configuration
 
-Two validated hex-color options cover light and dark accents. Standard Docusaurus configuration owns logos, navigation, sidebars, versions, locales and metadata. CSS tokens own typography, width and surfaces. This avoids duplicating upstream configuration.
+Two validated hex-color options cover light and dark accents. An optional footer credit is enabled by default and can be removed with showCredit: false. Shallow footer wrappers preserve configured footer content and also cover sites without a configured footer. Standard Docusaurus configuration owns logos, navigation, sidebars, versions, locales and metadata. CSS tokens own typography, width and surfaces. This avoids duplicating upstream configuration.
 
 ## Components
 

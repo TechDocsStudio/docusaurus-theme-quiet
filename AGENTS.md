@@ -28,3 +28,6 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - Guides and the generated OpenAPI demo use separate sidebars. Regenerate API docs from website/openapi/demo.yaml; do not edit generated MDX.
 
 - API media type and schema tabs are compact text controls with no boxed borders or duplicated dividers. A single media type appears as a simple label. Edit links use a 16px Lucide SquarePen, aligned with inline flex.
+
+- The footer shows an optional Powered by Quiet link to https://quiet.techdocs.studio by default, including sites with no configured footer. `showCredit: false` removes it. Preserve host copyright, footer links and logo.
+- Why Quiet explains the minimal, opinionated presentation layer over existing components and optional integrations. Identify Biel.ai and PushFeedback as the initial documentation projects being adapted; do not imply an unperformed production deployment.

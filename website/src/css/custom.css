@@ -72,7 +72,8 @@
   border: 0;
   background: transparent;
   color: inherit;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: none;
 }
 .quiet-search-input button {
   display: grid;

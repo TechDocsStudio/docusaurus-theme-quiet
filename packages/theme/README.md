@@ -24,3 +24,5 @@ Use standard Docusaurus logo and navigation settings. `accentColor` and `accentC
 The package includes MDX cards and steps. Tabs, code, admonitions and disclosures retain Classic behavior. It makes no third-party requests. Biel and PushFeedback are optional, separately configured integrations.
 
 Documentation, examples, source and release status: https://github.com/TechDocsStudio/docusaurus-theme-quiet
+
+The footer includes an optional Powered by Quiet link to https://quiet.techdocs.studio. Set `showCredit: false` in the theme options to remove it. Existing footer content is preserved.

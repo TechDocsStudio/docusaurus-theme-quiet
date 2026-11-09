@@ -4,6 +4,7 @@ export default {
   api: apiSidebar,
   docs: [
     "installation",
+    "why-quiet",
     "branding",
     "navigation",
     "writing",

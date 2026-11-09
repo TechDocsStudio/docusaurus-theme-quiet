@@ -5,6 +5,8 @@ export interface Options {
   accentColor?: string;
   /** Dark-mode accent. Six-digit hex color. Default: #e9ecef. */
   accentColorDark?: string;
+  /** Show the optional Powered by Quiet footer link. Default: true. */
+  showCredit?: boolean;
 }
 
 export default function quietTheme(

@@ -24,7 +24,29 @@ test("invalid options and CSS injection are rejected before generating HTML", ()
     { accentColor: "red" },
     { accentColor: "#fff;}</style><script>" },
     { accentColorDark: null },
+    { showCredit: "false" },
   ]) {
     assert.throws(() => theme({}, options), /Quiet:/);
   }
+});
+
+test("footer credit is enabled by default and can be disabled", () => {
+  for (const [options, expected] of [
+    [{}, true],
+    [{ showCredit: false }, false],
+  ]) {
+    let data;
+    theme({}, options).contentLoaded({
+      actions: {
+        setGlobalData(value) {
+          data = value;
+        },
+      },
+    });
+    assert.equal(data.showCredit, expected);
+  }
+});
+
+test("validated theme options retain Docusaurus's default plugin namespace", () => {
+  assert.equal(theme.validateOptions({ options: {} }).id, "default");
 });

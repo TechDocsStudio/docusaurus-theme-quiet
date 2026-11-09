@@ -997,3 +997,22 @@ html .openapi-tabs__code-container .openapi-tabs__code-item.active {
 html .theme-api-markdown details.openapi-markdown__details > summary::before {
   inset-inline-start: 0.2rem;
 }
+
+.quiet-theme-credit {
+  margin-top: 0.5rem;
+  color: var(--ifm-footer-color, var(--quiet-muted));
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+.quiet-theme-credit a {
+  color: inherit;
+  text-decoration: none;
+}
+.quiet-theme-credit a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.quiet-footer-minimal .quiet-theme-credit {
+  margin-top: 0;
+}

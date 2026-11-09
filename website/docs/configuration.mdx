@@ -9,6 +9,7 @@ description: The complete Quiet theme configuration reference.
 | ----------------- | ------------------- | --------- |
 | `accentColor`     | Six-digit hex color | `#191a18` |
 | `accentColorDark` | Six-digit hex color | `#e9ecef` |
+| `showCredit`      | Boolean             | `true`    |
 
 Unknown options and invalid colors fail the build with an explanation.
 
@@ -24,6 +25,16 @@ export default {
     ],
   ],
 };
+```
+
+## Footer credit
+
+The footer shows **Powered by Quiet**, linked to [quiet.techdocs.studio](https://quiet.techdocs.studio), by default. It also appears when your site has no configured footer. Your existing footer links, logo and copyright are preserved.
+
+To remove the credit:
+
+```js title="docusaurus.config.js"
+themes: [["docusaurus-theme-quiet", { showCredit: false }]];
 ```
 
 ## CSS tokens
