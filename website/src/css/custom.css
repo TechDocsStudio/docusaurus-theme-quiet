@@ -110,3 +110,11 @@
 .quiet-navbar-palette-mobile {
   margin: 0.5rem 0.75rem;
 }
+
+.theme-announcement-bar .close {
+  color: inherit;
+  opacity: 0.8;
+}
+.theme-announcement-bar .close:hover {
+  opacity: 1;
+}

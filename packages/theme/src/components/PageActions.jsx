@@ -94,7 +94,8 @@ export default function PageActions() {
         markdownUrl,
       });
       await copy(markdown, "Page", key);
-    } catch {
+    } catch (error) {
+      console.error("Quiet: could not copy page.", error);
       setCopiedKey(null);
       setStatus("Could not copy this page. Try again.");
       setOpen(false);

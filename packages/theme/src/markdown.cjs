@@ -1,4 +1,6 @@
-const TurndownService = require("turndown");
+const TurndownModule = require("turndown");
+// Turndown exposes a default export in its browser entry and CommonJS in Node.
+const TurndownService = TurndownModule.default || TurndownModule;
 const { gfm } = require("turndown-plugin-gfm");
 
 // Library conversion plus small adaptations for documentation chrome and code lines.
