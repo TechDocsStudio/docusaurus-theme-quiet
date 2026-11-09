@@ -123,7 +123,7 @@ module.exports = {
     announcementBar: {
       id: "techdocs-studio",
       content:
-        'Quiet is made by TechDocs Studio. We build, migrate and automate your docs. <a href="https://techdocs.studio/services">Explore our services</a>',
+        'Quiet is made by <a href="https://techdocs.studio/">TechDocs Studio</a>. We build, migrate and automate your docs.',
       backgroundColor: "var(--quiet-surface)",
       textColor: "var(--quiet-ink)",
       isCloseable: true,
