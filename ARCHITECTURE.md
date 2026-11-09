@@ -6,6 +6,8 @@ Quiet is a presentation layer over Docusaurus Classic. It keeps upstream routing
 
 The npm package contains its Node plugin entry, type declaration, CSS, a small keyboard handler, the MDX component map four small MDX components and shallow presentation wrappers. Lucide React is the only runtime dependency. There is no bundler, generated output, runtime framework or mandatory service SDK in the package. Docusaurus compiles the JSX. The keyboard handler closes Classic's mobile menu on Escape and returns focus to its toggle, using the existing close action.
 
+The documentation site has independent Guides and API sidebars. OpenAPI pages are generated from website/openapi/demo.yaml. Its explicit browser targets preserve the optional plugin's CommonJS modules during Babel compilation. The palette playground and local preference storage belong only to the website.
+
 The repository uses npm workspaces for the package and documentation site. Font files belong to the website under their original licenses and are excluded from the package. Consumer snapshots and package artifacts are ignored.
 
 ## Configuration

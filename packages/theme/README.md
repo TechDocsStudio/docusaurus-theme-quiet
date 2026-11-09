@@ -11,8 +11,8 @@ export default {
     [
       "docusaurus-theme-quiet",
       {
-        accentColor: "#2563eb",
-        accentColorDark: "#93b4ff",
+        accentColor: "#191a18",
+        accentColorDark: "#e9ecef",
       },
     ],
   ],

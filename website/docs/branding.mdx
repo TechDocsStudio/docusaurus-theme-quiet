@@ -3,6 +3,16 @@ title: Branding
 description: Configure colors, logos, favicon and separate fonts for the brand, headings, body and code.
 ---
 
+## Colors
+
+import BrandPreview from "@site/src/components/BrandPreview";
+
+Choose a palette or set your own colors. The preview stays active as you browse this demo and updates the configuration below. **Neutral** restores Quiet's default.
+
+<BrandPreview />
+
+Check your colors in both modes. The palette affects navigation, tabs, buttons, links and focus. Callout colors keep their meaning.
+
 ## Icon and text
 
 Put your icon in `static/img/`. Use `title` for editable brand text:
@@ -71,26 +81,6 @@ headTags: [
 ```
 
 Include your site's base path in custom `href` values when deploying below a subdirectory.
-
-## Colors
-
-Set a readable accent for each color mode. Options accept six-digit hex colors.
-
-```js title="docusaurus.config.js"
-export default {
-  themes: [
-    [
-      "docusaurus-theme-quiet",
-      {
-        accentColor: "#176a4a",
-        accentColorDark: "#8de1bb",
-      },
-    ],
-  ],
-};
-```
-
-Check your chosen colors against their backgrounds. Quiet cannot guarantee contrast for arbitrary brand colors.
 
 ## Fonts
 

@@ -19,3 +19,12 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - Center navbar search on wide screens and preserve mobile navigation. Search and assistant providers stay optional.
 - Integrations are organized by purpose: Ask AI, Search, User feedback, Diagrams, OpenAPI reference and Access for AI tools.
 - Document icon plus text, full-image logos, favicons and independent logo, heading, body and code fonts.
+
+- Default accents are neutral. A selected brand palette also colors active navigation, footer links, tabs, focus states and primary buttons. Keep semantic callout colors independent.
+- Callout default labels use sentence case. Tip is green, Info blue, Warning amber and Danger red, with restrained tints and neutral body text.
+- Preserve Classic's copy behavior. Lucide copy/check icons are unfilled strokes with identical positioning and a simple opacity transition.
+- Keep an explicit inset between sidebar items and its outer divider. Wide-table examples must scroll within an accessible region.
+- The documentation site's branding palette preview persists locally and generates matching configuration. It is not a dependency of the distributed theme.
+- Guides and the generated OpenAPI demo use separate sidebars. Regenerate API docs from website/openapi/demo.yaml; do not edit generated MDX.
+
+- API media type and schema tabs are compact text controls with no boxed borders or duplicated dividers. A single media type appears as a simple label. Edit links use a 16px Lucide SquarePen, aligned with inline flex.

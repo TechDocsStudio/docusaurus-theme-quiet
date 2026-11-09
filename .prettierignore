@@ -4,3 +4,5 @@ build
 .artifacts
 .local
 package-lock.json
+
+website/docs/api/

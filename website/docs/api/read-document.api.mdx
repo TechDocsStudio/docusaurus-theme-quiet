@@ -1,0 +1,69 @@
+---
+id: read-document
+title: "Read a document"
+description: "Read one document with its canonical URL and Markdown source."
+sidebar_label: "Read a document"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv2zgM/isC93IHuIlTDAec33rY7lBgB2xF+3JJcFMkJtZmS65IZw0M//eBipM4bZc93AEBklAU+ZH8+KkD1huCYg7vgmlr9EywzCA0GDW74G8tFBBR28MxZGCRTHSNHEMBd6itCh6VHTzUN8elckzKaB+8M7pSD3cflPZW/a3jVxu+eUWhjQYnkEGjo66RMQqKDryuEQo4BLu1kIGTPI3mEjKI+Ni6iBYKji0+B/OxXVWOSrQnNM6iZ7d2GCUbmRJrDUUHvGskEXF0fgMZ4JOum0pMG2R2fnNFrCOjhb5fSl5qgickuXud5/J1nvu+RCXokHiUX5Ka4FlaV3Sgm6ZyJrV2+oXkXvcSU1h9QcNnxc7BSSfYcYWQQRsrGVMTZVDs9qicvVzXKmpvxdgfAl10/2PkLvlecV6HWGuGAtrozu6WzA0V06kNhiaDeWJCPR1jaGKwreHLKB5bhyzeW4zk9g37sfdskovvqOE/9n3zRn0Im7BY+MXCPxCqXWijEnI6E3yia0KrhJKT1IXGakZ782rgYy/E54pdjWfZrvPr365ms6v89/tZXuTy+Qf60ySO+wd9L+a3+dvXKXYktg1IygdW+OTo/+OZCVaQ10ikN/iSZen8YmOd3+rK2X8fW4w76dsh1sVbn8Rb1S1xKmqFCuuGd5OzJr2PMcTUoRSWy2D3C5uEhEsoYHpoEE27k4r0svsYtweZSYQ+0lQ37oyl2xnIzju/Dgn0kP2TcFFZrIO6+XgLI04K8Sb5C2380/mTElCmREgVl+iiGmaVaEaooymVNjEQqWEt1BCcJgu/8PelIxVxjRG9QdUSkhoQK6tZpzicFCiVadXnZ0V9VmUgnix8Wr1AXOvEikFwk4zrI9jnpXQncv1nxR84wPjE06bSzo8UZj/E+VH/CTIoRo/BMgMpQ1y6bqUJH2LV92Les62YLzPY6uj0SkY278A6kt8WirWu6PmLMa7rl7thDX5VP31HXq1hMGq/E27oqpV/kMFX3J0/af2yz6BEbTEmjHuHG2Ow4dHVF0sspDyy/q/399D33wFz2qoF
+sidebar_class_name: "get api-method"
+info_path: api/quiet-demo-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a document"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/documents/{documentId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Read one document with its canonical URL and Markdown source.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./read-document.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./read-document.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./read-document.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

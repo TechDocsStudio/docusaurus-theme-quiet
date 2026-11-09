@@ -16,6 +16,7 @@ for (const required of [
   "index.cjs",
   "index.d.ts",
   "LICENSE",
+  "NOTICE",
   "README.md",
   "src/styles.css",
   "src/client.js",

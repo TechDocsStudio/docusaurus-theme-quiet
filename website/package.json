@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "docusaurus gen-api-docs all && docusaurus build",
     "serve": "docusaurus serve"
   },
   "dependencies": {
@@ -14,10 +14,24 @@
     "@mermaid-js/layout-elk": "^0.1.9",
     "d3-transition": "3.0.2",
     "docusaurus-biel": "^1.0.15",
+    "docusaurus-plugin-openapi-docs": "^5.2.0",
+    "docusaurus-theme-openapi-docs": "^5.2.0",
     "docusaurus-theme-quiet": "0.1.0",
     "lucide-react": "^0.468.0",
     "prism-react-renderer": "2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

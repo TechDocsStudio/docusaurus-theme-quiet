@@ -5,7 +5,10 @@ module.exports = {
   url: "https://techdocsstudio.github.io",
   baseUrl: "/docusaurus-theme-quiet/",
   favicon: "img/quiet.svg",
-  clientModules: [require.resolve("./src/mermaid-client.js")],
+  clientModules: [
+    require.resolve("./src/mermaid-client.js"),
+    require.resolve("./src/brand-client.js"),
+  ],
   trailingSlash: false,
   onBrokenLinks: "throw",
   markdown: { mermaid: true, hooks: { onBrokenMarkdownLinks: "throw" } },
@@ -16,6 +19,7 @@ module.exports = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
+          docItemComponent: "@theme/ApiItem",
           editUrl:
             "https://github.com/TechDocsStudio/docusaurus-theme-quiet/edit/main/website/",
         },
@@ -26,6 +30,20 @@ module.exports = {
   ],
   plugins: [
     require.resolve("./plugins/search.cjs"),
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "quiet-demo",
+        docsPluginId: "classic",
+        config: {
+          demo: {
+            specPath: "openapi/demo.yaml",
+            outputDir: "docs/api",
+            sidebarOptions: { groupPathsBy: "tag" },
+          },
+        },
+      },
+    ],
     ...(process.env.QUIET_BIEL_PROJECT
       ? [
           [
@@ -62,14 +80,34 @@ module.exports = {
     bielProject: process.env.QUIET_BIEL_PROJECT || null,
     feedbackProject: process.env.QUIET_FEEDBACK_PROJECT || null,
   },
-  themes: ["docusaurus-theme-quiet", "@docusaurus/theme-mermaid"],
+  themes: [
+    "docusaurus-theme-openapi-docs",
+    "@docusaurus/theme-mermaid",
+    "docusaurus-theme-quiet",
+  ],
   themeConfig: {
+    languageTabs: [
+      { language: "curl" },
+      { language: "javascript" },
+      { language: "python" },
+    ],
     navbar: {
       title: "Quiet",
       logo: { alt: "", src: "img/quiet.svg" },
       items: [
         { type: "search", position: "right" },
-        { to: "/components", label: "Components", position: "left" },
+        {
+          type: "docSidebar",
+          sidebarId: "docs",
+          label: "Guides",
+          position: "left",
+        },
+        {
+          to: "/api/quiet-demo-api",
+          label: "API demo",
+          position: "left",
+          activeBaseRegex: "^/api/",
+        },
         {
           href: "https://github.com/TechDocsStudio/docusaurus-theme-quiet",
           label: "GitHub",

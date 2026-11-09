@@ -7,14 +7,40 @@ Use a table when readers need to compare the same properties.
 
 | Setting           | Default   | Purpose                             |
 | ----------------- | --------- | ----------------------------------- |
-| `accentColor`     | `#2563eb` | Light-mode links and focus controls |
-| `accentColorDark` | `#93b4ff` | Dark-mode links and focus controls  |
+| `accentColor`     | `#191a18` | Light-mode links and focus controls |
+| `accentColorDark` | `#e9ecef` | Dark-mode links and focus controls  |
 
 ```md
 | Setting           | Default   | Purpose                             |
 | ----------------- | --------- | ----------------------------------- |
-| `accentColor`     | `#2563eb` | Light-mode links and focus controls |
-| `accentColorDark` | `#93b4ff` | Dark-mode links and focus controls  |
+| `accentColor`     | `#191a18` | Light-mode links and focus controls |
+| `accentColorDark` | `#e9ecef` | Dark-mode links and focus controls  |
 ```
 
 Wide tables scroll within the page. Do not shrink the text to fit a phone.
+
+## Wide table
+
+<div className="quiet-table-scroll" role="region" aria-label="Platform comparison" tabIndex={0}>
+
+| Platform      | Content format                | Navigation         | API reference           | Versioning           | Search               | Authentication      | Publishing               |
+| ------------- | ----------------------------- | ------------------ | ----------------------- | -------------------- | -------------------- | ------------------- | ------------------------ |
+| Docusaurus    | Markdown and MDX              | Sidebar categories | Optional OpenAPI plugin | Versioned docs       | Provider integration | Hosting integration | Static build             |
+| Sphinx        | reStructuredText and Markdown | Document trees     | Language extensions     | Separate builds      | Built-in index       | Hosting integration | HTML and PDF builds      |
+| Starlight     | Markdown and MDX              | Sidebar groups     | Optional integration    | Separate collections | Built-in search      | Hosting integration | Static build             |
+| Custom portal | Your content sources          | Product catalog    | Your specifications     | Product releases     | Your search service  | Identity provider   | Your deployment pipeline |
+
+</div>
+
+The table keeps its text size. Focus the region and use the arrow keys to scroll when it is wider than the article.
+
+```mdx
+<div className="quiet-table-scroll" role="region"
+  aria-label="Platform comparison" tabIndex={0}>
+
+| Platform   | Content format   | Navigation         | API reference  |
+| ---------- | ---------------- | ------------------ | -------------- |
+| Docusaurus | Markdown and MDX | Sidebar categories | OpenAPI plugin |
+
+</div>
+```

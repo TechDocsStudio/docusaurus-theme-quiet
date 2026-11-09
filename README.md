@@ -29,8 +29,8 @@ export default {
     [
       "docusaurus-theme-quiet",
       {
-        accentColor: "#2563eb",
-        accentColorDark: "#93b4ff",
+        accentColor: "#191a18",
+        accentColorDark: "#e9ecef",
       },
     ],
   ],
@@ -47,7 +47,7 @@ Use standard Docusaurus configuration for logos, navigation, locales and version
 - Light and dark palettes, 17px reading text and 14px minimum UI text.
 - Integration guides for Biel search, Ask AI and PushFeedback, without mandatory service dependencies.
 - Lucide icons, icon-free generated cards, small carets and centered navbar search.
-- A documentation site with rendered examples and their source.
+- A documentation site with rendered examples, a persistent branding playground and a generated OpenAPI demo with its own sidebar.
 
 ## Repository
 

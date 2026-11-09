@@ -1,4 +1,7 @@
-module.exports = {
+import apiSidebar from "./docs/api/sidebar";
+
+export default {
+  api: apiSidebar,
   docs: [
     "installation",
     "branding",

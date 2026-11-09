@@ -1,0 +1,154 @@
+openapi: 3.0.3
+info:
+  title: Quiet demo API
+  version: 1.0.0
+  description: |
+    Find documents, read their content and search across product versions.
+
+    This reference uses example data and the reserved `api.example.com` host.
+servers:
+  - url: https://api.example.com/v1
+tags:
+  - name: Documents
+    description: Published documents and their metadata.
+  - name: Search
+    description: Find relevant content across your documentation.
+paths:
+  /documents:
+    get:
+      tags: [Documents]
+      summary: List documents
+      operationId: listDocuments
+      description: Return published documents. Filter by product or version before paginating.
+      parameters:
+        - name: product
+          in: query
+          schema: { type: string, example: quiet }
+          description: Product identifier.
+        - name: version
+          in: query
+          schema: { type: string, example: "1.0" }
+          description: Published documentation version.
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+          description: Maximum documents in a response.
+      responses:
+        "200":
+          description: Published documents.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data]
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: "#/components/schemas/Document" }
+                  nextCursor: { type: string, nullable: true, example: null }
+        "400": { $ref: "#/components/responses/BadRequest" }
+  /documents/{documentId}:
+    get:
+      tags: [Documents]
+      summary: Read a document
+      operationId: readDocument
+      description: Read one document with its canonical URL and Markdown source.
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          description: Published document identifier.
+          schema: { type: string, example: getting-started }
+      responses:
+        "200":
+          description: The requested document.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Document" }
+        "404":
+          description: The document does not exist.
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+  /search:
+    post:
+      tags: [Search]
+      summary: Search documentation
+      operationId: searchDocumentation
+      description: Find documents matching a query. Results include a source URL and excerpt.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  {
+                    type: string,
+                    minLength: 1,
+                    example: How do I change the logo?,
+                  }
+                limit: { type: integer, minimum: 1, maximum: 20, default: 5 }
+                filters:
+                  type: object
+                  properties:
+                    product: { type: string, example: quiet }
+                    version: { type: string, example: "1.0" }
+      responses:
+        "200":
+          description: Ranked results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        document: { $ref: "#/components/schemas/Document" }
+                        excerpt:
+                          {
+                            type: string,
+                            example: Set navbar.logo to your own image.,
+                          }
+                        score: { type: number, format: float, example: 0.94 }
+        "400": { $ref: "#/components/responses/BadRequest" }
+components:
+  schemas:
+    Document:
+      type: object
+      required: [id, title, url]
+      properties:
+        id: { type: string, example: branding }
+        title: { type: string, example: Branding }
+        url:
+          {
+            type: string,
+            format: uri,
+            example: "https://docs.example.com/branding",
+          }
+        product: { type: string, example: quiet }
+        version: { type: string, example: "1.0" }
+        content:
+          {
+            type: string,
+            example: '## Logo\n\nUse your own icon and brand name.',
+          }
+        updatedAt:
+          { type: string, format: date-time, example: "2026-11-09T10:00:00Z" }
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code: { type: string, example: invalid_query }
+        message: { type: string, example: Query must not be empty. }
+  responses:
+    BadRequest:
+      description: Invalid query or parameters.
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Error" }

@@ -1,0 +1,1 @@
+{"parameters":[{"name":"documentId","in":"path","required":true,"description":"Published document identifier.","schema":{"type":"string","example":"getting-started"}}]}
