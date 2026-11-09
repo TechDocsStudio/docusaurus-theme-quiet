@@ -30,6 +30,7 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - API media type and schema tabs are compact text controls with no boxed borders or duplicated dividers. A single media type appears as a simple label. Edit links use a 16px Lucide SquarePen, aligned with inline flex.
 
 - The footer shows an optional Powered by Quiet link to https://quiet.techdocs.studio by default, including sites with no configured footer. `showCredit: false` removes it. Preserve host copyright, footer links and logo.
-- Why Quiet explains the minimal, opinionated presentation layer over existing components and optional integrations. Identify Biel.ai and PushFeedback as the initial documentation projects being adapted; do not imply an unperformed production deployment.
+- Why Quiet explains the minimal, opinionated presentation layer over existing components and optional integrations, and identifies it as the default theme TechDocs Studio uses for client documentation projects. Identify Biel.ai and PushFeedback as the initial documentation projects being adapted.
 
 - Do not ship a custom search engine. The demo uses the official Biel control and delegates to installed providers when disabled. With no provider, hide the empty search container. Keep alternate providers supported without promoting them in the docs.
+- Align the first breadcrumb text with the article. Feedback thumb controls are square: 36px with a precise pointer, 44px with a coarse pointer. Biel actions, hover states and user messages follow the selected palette.

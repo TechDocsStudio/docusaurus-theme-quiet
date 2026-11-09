@@ -13,6 +13,7 @@ export default function DocFooter(props) {
           <span>Was this helpful?</span>
           <div className="pushfeedback-thumbs-row">
             <feedback-button
+              class="quiet-feedback-thumb"
               project={project}
               rating="1"
               button-position="default"
@@ -26,6 +27,7 @@ export default function DocFooter(props) {
               </span>
             </feedback-button>
             <feedback-button
+              class="quiet-feedback-thumb"
               project={project}
               rating="0"
               button-position="default"

@@ -6,6 +6,11 @@
   --quiet-muted: #61666c;
   --quiet-line: #e5e7eb;
   --quiet-accent: var(--quiet-accent-light, #191a18);
+  --quiet-accent-hover: color-mix(
+    in srgb,
+    var(--quiet-accent) 86%,
+    var(--quiet-ink)
+  );
   --ifm-font-family-base: var(
     --quiet-font-body,
     Inter,
@@ -173,6 +178,9 @@ h1 {
   font-size: 14px;
   color: var(--quiet-muted);
   background: transparent;
+}
+.theme-doc-breadcrumbs .breadcrumbs__item:first-child .breadcrumbs__link {
+  padding-inline-start: 0;
 }
 .theme-doc-markdown {
   max-width: var(--quiet-content-width, 48rem);
@@ -681,6 +689,27 @@ biel-bot {
   justify-content: center;
   vertical-align: middle;
 }
+.quiet-feedback-thumb {
+  --quiet-feedback-size: 36px;
+  display: inline-flex;
+  width: var(--quiet-feedback-size);
+  height: var(--quiet-feedback-size);
+}
+.pushfeedback-thumbs-row .quiet-feedback-thumb::part(button) {
+  width: var(--quiet-feedback-size);
+  height: var(--quiet-feedback-size);
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+@media (pointer: coarse) {
+  .quiet-feedback-thumb {
+    --quiet-feedback-size: 44px;
+  }
+}
 .quiet-feedback-label {
   position: absolute;
   width: 1px;
@@ -711,7 +740,13 @@ html:root {
   --biel-text-xl-font-size: 18px;
   --biel-primary-color: var(--quiet-accent);
   --biel-primary-light-color: var(--quiet-accent);
-  --biel-primary-hover-color: var(--quiet-ink);
+  --biel-primary-hover-color: var(--quiet-accent-hover);
+  --biel-button-dark-bg-color-hover: var(--quiet-accent-hover);
+  --biel-input-button-bg-color: var(--quiet-accent);
+  --biel-input-button-color: var(--quiet-paper);
+  --biel-input-button-hover-bg-color: var(--quiet-accent-hover);
+  --biel-input-button-hover-border-color: var(--quiet-accent-hover);
+  --biel-input-button-hover-color: var(--quiet-paper);
   --biel-bot-content-bg-color: var(--quiet-paper);
   --biel-bot-content-border-color: var(--quiet-line);
   --biel-bot-content-text-color: var(--quiet-ink);
@@ -719,7 +754,7 @@ html:root {
   --biel-header-border-color: var(--quiet-line);
   --biel-message-biel-bg-color: var(--quiet-surface);
   --biel-message-biel-text-color: var(--quiet-ink);
-  --biel-message-user-bg-color: var(--quiet-ink);
+  --biel-message-user-bg-color: var(--quiet-accent);
   --biel-message-user-text-color: var(--quiet-paper);
   --biel-message-border-radius: 8px;
   --biel-input-border-radius: 8px;

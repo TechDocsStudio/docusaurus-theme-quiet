@@ -17,3 +17,5 @@
 - Remove the search input's focus outline inside the local search dialog.
 
 - Replace the demo search index and dialog with the official Biel control. Configure the documentation site's Biel and PushFeedback projects, preserving installed search providers and hiding unconfigured search.
+
+- Align breadcrumbs with article text, reduce feedback thumbs to square controls, and apply branding to Biel hover states and user messages. Identify Quiet as TechDocs Studio's default theme for client documentation projects.
