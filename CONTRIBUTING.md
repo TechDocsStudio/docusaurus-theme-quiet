@@ -28,7 +28,7 @@ Consumer snapshots are for local evaluation. Do not publish or deploy them. Revi
 
 ## Preview optional providers
 
-The documentation site uses local title and description search by default. To evaluate your own providers, set `QUIET_BIEL_PROJECT` and/or `QUIET_FEEDBACK_PROJECT` before running `npm start` or `npm run build`. Without an ID, its loader and controls stay disabled. Never commit real account credentials or server API keys.
+The documentation site uses its own public Biel and PushFeedback projects. Set `QUIET_BIEL_PROJECT` and/or `QUIET_FEEDBACK_PROJECT` to use different projects, or set them to an empty value to disable each integration. With Biel disabled, the site delegates to an installed search provider; without one, no search control appears. The theme package has no search implementation or project IDs. Never commit account credentials or server API keys.
 
 ## Prepare a release
 

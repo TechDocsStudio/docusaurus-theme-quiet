@@ -15,18 +15,28 @@ export default function DocFooter(props) {
             <feedback-button
               project={project}
               rating="1"
+              button-position="default"
               button-style="default"
               modal-position="center"
+              custom-font="true"
             >
-              <ThumbsUp size={18} aria-hidden="true" /> Helpful
+              <span className="quiet-feedback-choice">
+                <ThumbsUp size={18} aria-hidden="true" />
+                <span className="quiet-feedback-label">Helpful</span>
+              </span>
             </feedback-button>
             <feedback-button
               project={project}
               rating="0"
+              button-position="default"
               button-style="default"
               modal-position="center"
+              custom-font="true"
             >
-              <ThumbsDown size={18} aria-hidden="true" /> Not helpful
+              <span className="quiet-feedback-choice">
+                <ThumbsDown size={18} aria-hidden="true" />
+                <span className="quiet-feedback-label">Not helpful</span>
+              </span>
             </feedback-button>
           </div>
         </div>

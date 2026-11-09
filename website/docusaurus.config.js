@@ -1,5 +1,18 @@
 const { themes } = require("prism-react-renderer");
 
+// Public widget identifiers for this documentation site, never server API keys.
+// An empty environment value disables the corresponding integration.
+const bielProject = process.env.QUIET_BIEL_PROJECT ?? "uxnmeieace";
+const feedbackProject = process.env.QUIET_FEEDBACK_PROJECT ?? "la5bwd37g0";
+const bielApiUrl = "https://test.techdocs.studio";
+const biel = bielProject
+  ? {
+      project: bielProject,
+      apiUrl: bielApiUrl,
+      mcpServerUrl: `${bielApiUrl}/mcp/${bielProject}?metadata=mcp`,
+    }
+  : null;
+
 module.exports = {
   title: "Quiet",
   url: "https://techdocsstudio.github.io",
@@ -29,7 +42,6 @@ module.exports = {
     ],
   ],
   plugins: [
-    require.resolve("./plugins/search.cjs"),
     [
       "docusaurus-plugin-openapi-docs",
       {
@@ -44,12 +56,12 @@ module.exports = {
         },
       },
     ],
-    ...(process.env.QUIET_BIEL_PROJECT
+    ...(biel
       ? [
           [
             "docusaurus-biel",
             {
-              project: process.env.QUIET_BIEL_PROJECT,
+              ...biel,
               bielButtonText: "Ask AI",
               headerTitle: "Ask AI",
               modalPosition: "sidebar-right",
@@ -58,7 +70,7 @@ module.exports = {
         ]
       : []),
   ],
-  headTags: process.env.QUIET_FEEDBACK_PROJECT
+  headTags: feedbackProject
     ? [
         {
           tagName: "link",
@@ -77,8 +89,8 @@ module.exports = {
       ]
     : [],
   customFields: {
-    bielProject: process.env.QUIET_BIEL_PROJECT || null,
-    feedbackProject: process.env.QUIET_FEEDBACK_PROJECT || null,
+    biel,
+    feedbackProject: feedbackProject || null,
   },
   themes: [
     "docusaurus-theme-openapi-docs",

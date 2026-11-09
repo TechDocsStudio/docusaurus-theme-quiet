@@ -1,33 +1,44 @@
 ---
 title: Search
-description: Add centered documentation search with Biel or your preferred search provider.
+description: Connect documentation search while keeping your preferred provider.
 ---
 
-Quiet centers the navbar search control on wide screens. It keeps the brand, navigation and mobile menu available around it. The search implementation belongs to your site.
+Quiet centers the navbar search control on wide screens. It does not implement a search engine or replace your provider's `SearchBar`.
+
+This documentation site uses Biel. Without a configured project or another installed search provider, no search bar appears.
 
 ## Biel
 
-Install the plugin using [Ask AI](./ask-ai.mdx). It loads the web components used by search and the assistant.
+Install the plugin using [Ask AI](./ask-ai.mdx). It loads the official search and assistant controls.
 
-Add the navbar item:
+Use the same project for the plugin and search:
 
 ```js title="docusaurus.config.js"
-themeConfig: {
-  navbar: {
-    items: [{ type: "search", position: "right" }];
-  }
-}
+const project = process.env.BIEL_PROJECT_ID;
+
+export default {
+  plugins: project ? [["docusaurus-biel", { project }]] : [],
+  customFields: { bielProject: project || null },
+  themeConfig: {
+    navbar: { items: [{ type: "search", position: "right" }] },
+  },
+};
 ```
 
-Create the search control:
+Add the Biel control, with a fallback to the site's installed provider:
 
 ```jsx title="src/theme/SearchBar/index.jsx"
 import React from "react";
+import SearchBar from "@theme-original/SearchBar";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
-export default function SearchBar() {
+export default function SiteSearchBar() {
+  const { siteConfig } = useDocusaurusContext();
+  const project = siteConfig.customFields?.bielProject;
+  if (!project) return <SearchBar />;
   return (
     <biel-search-button
-      project="YOUR_PROJECT_ID"
+      project={project}
       header-title="Ask AI"
       button-style="rounded"
       clean-titles="true"
@@ -38,11 +49,9 @@ export default function SearchBar() {
 }
 ```
 
-Use your own project ID. Never put a server API key in this component.
+Index your published documentation website in Biel before testing search results. Repository sources can supply context to Ask AI, but do not populate the widget's web-page search.
 
-## Other providers
-
-Docusaurus search integrations can supply their own `SearchBar`. Quiet styles the surrounding navigation without replacing that control. This documentation site uses a small local title and description index, with no external requests.
+Use your public project ID, never a server API key. With no project, the adapter delegates to the installed provider. Classic itself renders no search control.
 
 ## Width
 

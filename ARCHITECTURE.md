@@ -36,7 +36,7 @@ Readers get readable text, short navigation, visible focus, native disclosures a
 
 ## Integrations
 
-Biel search, Ask AI and PushFeedback are optional plugins. Quiet sets compatible CSS tokens but never imports a service SDK or supplies a project ID. Integration documentation shows installation, configuration and verification. Automated checks do not submit service requests.
+Biel search, Ask AI and PushFeedback are optional plugins. Quiet sets compatible CSS tokens but never imports a service SDK or supplies a project ID. The theme supplies no SearchBar implementation, so installed providers retain their own controls. Empty search containers are hidden. The documentation site uses its public Biel and PushFeedback projects through site-owned adapters. Disabling Biel delegates to the installed SearchBar, or Classic's empty default. Integration documentation shows installation, configuration and verification. Automated checks do not submit questions or feedback.
 
 ## Consumer tests
 

@@ -7,7 +7,7 @@ Local evaluation on November 9, 2026. This is an unpublished first release.
 - Node 24.22.2, npm 11.9.0, Docusaurus Classic 3.10.2 and React 18.3.1.
 - Configuration tests cover both color modes, package entry points, unknown options and CSS injection rejection.
 - Prettier, production build and distribution checks pass.
-- The documentation build contains 29 HTML pages. The local-link checker checks 1,635 links and assets, titles and one H1 per page.
+- The documentation build contains 29 HTML pages. The local-link checker checks 852 links and assets, titles and one H1 per page.
 - The tarball contains 35 files, about 42 KB unpacked. No website, fonts, consumer snapshots, credentials or service SDKs are packaged. Lucide React is the one UI dependency.
 
 The footer credit is present by default, including when no host footer is configured. A separate production build with `showCredit: false` removes the credit across all 29 HTML pages while preserving a configured copyright. Both consumer builds retain their copyright and show exactly one credit. The default plugin namespace is retained by option validation.
@@ -17,8 +17,10 @@ The footer credit is present by default, including when no host footer is config
 - Light and dark mode, readable body text and 14px code.
 - Generated category cards contain no default emoji icons. Category links and descriptions remain available.
 - Breadcrumbs omit the redundant home icon. Category breadcrumbs remain.
-- The focused search input has no border, outline or shadow; the dialog and other controls retain their keyboard behavior.
-- Navbar search opens a native dialog, filters the documentation index and follows a result. Its default implementation makes no external requests.
+- The documentation site uses the official Biel search control and floating Ask AI button with its own project. The former local index, filtering code and custom dialog have been removed.
+- A separate production build with both project environment values empty has no provider loaders or controls. Its empty search container is hidden with zero width in the browser. A separate build with a test search provider preserves that provider's SearchBar.
+- The Quiet Biel project loaded 36 repository sources. These supply assistant context; web-page search needs the published website indexed separately. A search for branding returned no pages, as expected for a repository-only project. No AI question was submitted.
+- PushFeedback thumbs render with the Quiet project configured. They were not clicked or submitted during verification.
 - Sidebar active backgrounds retain an inset from the outer divider. The icon-to-wordmark gap is approximately 6px.
 - API media-type and schema tabs are compact and borderless. A single media type is a 20px text label. The body tab is approximately 32px tall. Schema carets no longer overlap the heading.
 - Edit links use a 16px Lucide SquarePen, centered with inline flex. Forest changes active navigation, footer links, tab selection and primary buttons.
@@ -47,4 +49,4 @@ Biel's optional search, floating Ask AI and two per-page feedback buttons render
 
 React 19 is in the peer range but has not been tested here. RTL styles are included but have not had a complete language review. This is not a full accessibility certification. Consumer dependency graphs are inherited from the source snapshots. The optional OpenAPI/Postman tooling has upstream transitive audit findings; those dependencies are excluded from the distributed theme.
 
-No npm release or consumer deployment is performed. Optional provider IDs are configured by the host site. The Quiet documentation site defaults to local search with external services disabled.
+No npm release or consumer deployment is performed. Optional provider IDs are configured by the host site. The Quiet documentation site defaults to its public Biel and PushFeedback projects. Empty environment overrides disable them independently. The distributed theme contains neither a search engine nor these project IDs.

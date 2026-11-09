@@ -6,7 +6,7 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - Preserve classic navigation, keyboard controls, links, routing, accessibility and metadata. Extend through public theme aliases and semantic CSS classes. Avoid ejecting upstream components.
 - Use sentence case, direct instructions and working examples. No slogans, repeated helper paragraphs, decorative labels, or invented claims.
 - Body text is 17px. UI and code text never fall below 14px. Support light, dark, keyboard, reduced motion, RTL and 320px screens.
-- Branding uses standard Docusaurus logo configuration, two theme accent options, and documented CSS variables. No fixed product names, public project IDs or third-party requests in the theme.
+- Branding uses standard Docusaurus logo configuration, two theme accent options, and documented CSS variables. No fixed product names, public project IDs or third-party requests in the theme. The documentation website may configure its own public widget IDs.
 - Biel and PushFeedback remain optional plugins. Do not submit AI questions or feedback in verification. Placeholder project IDs must never be sent to a service.
 - A component example shows the actual component and its source. Use upstream components for tabs, code, admonitions, disclosures and diagrams.
 - Run npm test, npm run lint, npm run build and npm run pack:theme. Verify the packed package in the isolated consumer fixtures and inspect responsive layouts.
@@ -31,3 +31,5 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 
 - The footer shows an optional Powered by Quiet link to https://quiet.techdocs.studio by default, including sites with no configured footer. `showCredit: false` removes it. Preserve host copyright, footer links and logo.
 - Why Quiet explains the minimal, opinionated presentation layer over existing components and optional integrations. Identify Biel.ai and PushFeedback as the initial documentation projects being adapted; do not imply an unperformed production deployment.
+
+- Do not ship a custom search engine. The demo uses the official Biel control and delegates to installed providers when disabled. With no provider, hide the empty search container. Keep alternate providers supported without promoting them in the docs.

@@ -15,3 +15,5 @@
 
 - Add an optional default Powered by Quiet footer and a Why Quiet page.
 - Remove the search input's focus outline inside the local search dialog.
+
+- Replace the demo search index and dialog with the official Biel control. Configure the documentation site's Biel and PushFeedback projects, preserving installed search providers and hiding unconfigured search.
