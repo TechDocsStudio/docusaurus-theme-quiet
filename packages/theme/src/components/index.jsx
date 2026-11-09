@@ -22,7 +22,7 @@ export function Steps({ children }) {
 export function Step({ title, children }) {
   return (
     <li>
-      <Heading as="h3">{title}</Heading>
+      {title && <Heading as="h3">{title}</Heading>}
       <div>{children}</div>
     </li>
   );

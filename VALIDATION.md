@@ -55,3 +55,11 @@ No npm release or consumer deployment is performed. Optional provider IDs are co
 ## Launch preparation
 
 The README includes an actual browser screenshot captured with a 1280 by 800 viewport override (the browser exports a 1265 by 791 image). API operations fill the available main column: at this viewport the main and API content measured 965px, with no page overflow. Diagrams are listed only under Components. Used by is a separate page. The production build uses https://quiet.techdocs.studio/ with root asset paths. The first npm release remains manual.
+
+## Card, procedure and contrast review
+
+The Biel migration uses Classic DocCardList for 73 navigation cards. Their destinations are unchanged. Native and Quiet cards have visible spacing and no link underlines. Both consumer quickstarts use Steps with their existing heading IDs and table-of-contents entries. Short numbered lists remain unchanged. Quiet installation and OpenAPI setup also demonstrate detailed steps.
+
+The PushFeedback navbar uses the current public website mark and an editable text wordmark. Its mark renders square at 30px on desktop and 24px on mobile. The theme preserves image aspect ratios rather than compressing full-image logos.
+
+Dark-mode widget checks confirmed a white Biel search symbol on #191a18 and a white PushFeedback Send label on #2563eb. Filled actions keep the primary color while links can use a lighter dark-mode accent. Both consumer pages fit a 320px viewport; navigation cards become a single column. No AI question, rating or feedback submission was sent.

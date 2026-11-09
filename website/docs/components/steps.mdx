@@ -43,3 +43,30 @@ description: Write a sequence of actions with Quiet steps.
 ````
 
 Steps use an ordered list. Each `Step` title is an H3, so place the group under an H2 section. Use a normal numbered list for short instructions.
+
+## Detailed procedures
+
+Use steps when each action needs a heading, code or a screenshot. Keep short instructions in a normal numbered list. Options and checklists do not need steps.
+
+For a procedure with its own Markdown headings, omit `title`. Docusaurus can then include those headings in the table of contents. Keep existing heading IDs when converting a published guide:
+
+```mdx
+<Steps>
+<Step>
+
+## Create a project {#2-create-a-project}
+
+Open **Projects** and select **Create project**.
+
+</Step>
+<Step>
+
+## Check the result
+
+Open the project and confirm that your sources are listed.
+
+</Step>
+</Steps>
+```
+
+[Install Quiet](/) and [OpenAPI setup](/integrations/openapi) use this pattern.

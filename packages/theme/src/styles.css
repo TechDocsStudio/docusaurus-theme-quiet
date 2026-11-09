@@ -6,6 +6,9 @@
   --quiet-muted: #61666c;
   --quiet-line: #e5e7eb;
   --quiet-accent: var(--quiet-accent-light, #191a18);
+  --quiet-action: var(--quiet-accent-light, #191a18);
+  --quiet-on-action: #ffffff;
+  --quiet-action-hover: color-mix(in srgb, var(--quiet-action) 86%, #000000);
   --quiet-accent-hover: color-mix(
     in srgb,
     var(--quiet-accent) 86%,
@@ -138,6 +141,12 @@ h1 {
 .navbar__logo {
   height: 30px;
 }
+.navbar__logo img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+}
 .navbar__link {
   font-size: 15px;
   font-weight: 450;
@@ -208,7 +217,7 @@ main > .container:has(.theme-api-markdown),
 .markdown li + li {
   margin-top: 0.35rem;
 }
-.markdown a:not(.quiet-card) {
+.markdown a:not(.quiet-card):not(.card) {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -439,7 +448,7 @@ details.alert > div > div {
 .quiet-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   margin-block: 1.5rem;
 }
 .quiet-card {
@@ -501,6 +510,17 @@ details.alert > div > div {
   font-size: 1.15rem;
   padding-top: 0.2rem;
   margin-block: 0 0.75rem;
+}
+.quiet-steps > li > div > h2:first-child {
+  margin-top: 0;
+  padding-top: 0.1rem;
+  font-size: 1.5rem;
+}
+.quiet-steps > li:last-child {
+  padding-block-end: 0;
+}
+.quiet-steps ol {
+  list-style-type: decimal;
 }
 /* Optional web components inherit the site's identity without loading any SDK. */
 biel-search-button,
@@ -579,6 +599,11 @@ biel-search-button:not(.hydrated) {
 
 /* Built-in generated cards use exactly the same visual language as MDX cards. */
 .theme-doc-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  color: var(--quiet-ink);
   background: transparent;
   border: 1px solid var(--quiet-line);
   border-radius: var(--quiet-radius, 8px);
@@ -586,13 +611,28 @@ biel-search-button:not(.hydrated) {
   padding: 1.25rem !important;
   text-decoration: none !important;
 }
+.theme-doc-card-container:hover {
+  background: var(--quiet-surface);
+  border-color: var(--quiet-accent);
+  color: var(--quiet-ink);
+}
+.row:has(> .col > .theme-doc-card-container) {
+  row-gap: 1.5rem;
+  margin-block: 1.5rem;
+}
+.row > .col:has(> .theme-doc-card-container) {
+  margin-bottom: 0;
+}
 .theme-doc-card-heading {
+  margin: 0;
   font-size: 17px;
   font-weight: 550;
   letter-spacing: -0.015em;
   white-space: normal !important;
 }
 .theme-doc-card-description {
+  margin: 0;
+  line-height: 1.65;
   font-size: 15px;
   color: var(--quiet-muted);
   white-space: normal !important;
@@ -746,12 +786,14 @@ html:root {
   --biel-primary-color: var(--quiet-accent);
   --biel-primary-light-color: var(--quiet-accent);
   --biel-primary-hover-color: var(--quiet-accent-hover);
-  --biel-button-dark-bg-color-hover: var(--quiet-accent-hover);
-  --biel-input-button-bg-color: var(--quiet-accent);
-  --biel-input-button-color: var(--quiet-paper);
-  --biel-input-button-hover-bg-color: var(--quiet-accent-hover);
-  --biel-input-button-hover-border-color: var(--quiet-accent-hover);
-  --biel-input-button-hover-color: var(--quiet-paper);
+  --biel-button-dark-bg-color: var(--quiet-action);
+  --biel-button-dark-text-color: var(--quiet-on-action);
+  --biel-button-dark-bg-color-hover: var(--quiet-action-hover);
+  --biel-input-button-bg-color: var(--quiet-action);
+  --biel-input-button-color: var(--quiet-on-action);
+  --biel-input-button-hover-bg-color: var(--quiet-action-hover);
+  --biel-input-button-hover-border-color: var(--quiet-action-hover);
+  --biel-input-button-hover-color: var(--quiet-on-action);
   --biel-bot-content-bg-color: var(--quiet-paper);
   --biel-bot-content-border-color: var(--quiet-line);
   --biel-bot-content-text-color: var(--quiet-ink);
@@ -759,11 +801,13 @@ html:root {
   --biel-header-border-color: var(--quiet-line);
   --biel-message-biel-bg-color: var(--quiet-surface);
   --biel-message-biel-text-color: var(--quiet-ink);
-  --biel-message-user-bg-color: var(--quiet-accent);
-  --biel-message-user-text-color: var(--quiet-paper);
+  --biel-message-user-bg-color: var(--quiet-action);
+  --biel-message-user-text-color: var(--quiet-on-action);
   --biel-message-border-radius: 8px;
   --biel-input-border-radius: 8px;
   --biel-input-color: var(--quiet-ink);
+  --biel-search-ask-ai-bg-color: var(--quiet-action);
+  --biel-search-ask-ai-color: var(--quiet-on-action);
   --biel-search-content-bg-color: var(--quiet-paper);
   --biel-search-content-text-color: var(--quiet-ink);
   --biel-search-content-border-color: var(--quiet-line);
@@ -773,6 +817,14 @@ html:root {
   --biel-search-result-bg-hover-color: var(--quiet-surface);
   --biel-search-result-bg-selected-color: var(--quiet-surface);
   --biel-button-box-shadow: none;
+  --feedback-button-dark-bg-color: var(--quiet-action);
+  --feedback-button-dark-text-color: var(--quiet-on-action);
+  --feedback-button-dark-icon-color: var(--quiet-on-action);
+  --feedback-modal-button-submit-bg-color: var(--quiet-action);
+  --feedback-modal-button-submit-bg-color-hover: var(--quiet-action-hover);
+  --feedback-modal-button-submit-border-color-hover: var(--quiet-action-hover);
+  --feedback-modal-button-submit-text-color: var(--quiet-on-action);
+  --feedback-modal-button-submit-text-color-hover: var(--quiet-on-action);
   --feedback-font-family: var(--ifm-font-family-base);
   --feedback-primary-color: var(--quiet-accent);
 }

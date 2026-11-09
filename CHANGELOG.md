@@ -2,6 +2,9 @@
 
 ## 0.1.0 — unreleased
 
+- Space navigation cards consistently, preserve logo proportions and support Markdown headings inside steps.
+- Keep filled widget controls legible in dark mode without changing the link palette.
+
 - Add a Classic-based theme with configurable light and dark accents.
 - Style navigation, typography, code, callouts, tabs, disclosures and tables.
 - Add MDX cards and steps with rendered examples.

@@ -36,3 +36,5 @@ Quiet is a reusable, MIT-licensed Docusaurus theme layered over theme-classic.
 - Align the first breadcrumb text with the article. Feedback thumb controls are square: 36px with a precise pointer, 44px with a coarse pointer. Biel actions, hover states and user messages follow the selected palette.
 
 - API operations use the full available main column for reference and explorer panels. Guide prose retains its reading width. The website is hosted at quiet.techdocs.studio, with Netlify serving the root path.
+
+- Use Classic DocCardList for navigation cards rather than handwritten card HTML. Keep cards separated and free of link underlines. Preserve logo aspect ratios. Use Steps for detailed procedures and retain existing Markdown heading IDs. Filled widget actions keep the primary brand color and a contrasting foreground in both modes; dark link accents are separate.
