@@ -1,0 +1,51 @@
+---
+slug: /
+title: Install Quiet
+description: Add Quiet to an existing Docusaurus site without replacing its content or plugins.
+---
+
+Quiet extends Docusaurus Classic. Keep your documents, navigation and plugins.
+
+:::note First release
+The npm package is not published yet. From this repository, run `npm ci` and `npm start` to preview the docs. Run `npm run pack:theme` to install the package in another site.
+:::
+
+## Install the package
+
+```bash
+npm install docusaurus-theme-quiet
+```
+
+Use Docusaurus 3.10.x with the Classic preset. The package uses your site's existing React and Classic theme.
+
+## Add the theme
+
+```js title="docusaurus.config.js"
+export default {
+  presets: [["classic", { docs: { sidebarPath: "./sidebars.js" } }]],
+  themes: ["docusaurus-theme-quiet"],
+};
+```
+
+Restart the development server. Remove old theme overrides gradually, checking any custom behavior they contain.
+
+## Make it yours
+
+<CardGrid>
+  <Card to="/branding" title="Branding">
+    Set your logo, colors and fonts.
+  </Card>
+  <Card to="/components" title="Components">
+    See each component and its source.
+  </Card>
+  <Card to="/integrations/ask-ai" title="Search and Ask AI">
+    Connect Biel without changing your docs.
+  </Card>
+  <Card to="/integrations/user-feedback" title="Feedback">
+    Add PushFeedback when you need it.
+  </Card>
+</CardGrid>
+
+## Remove Quiet
+
+Remove `docusaurus-theme-quiet` from `themes`, then uninstall the package. Your documents and Classic configuration remain usable.

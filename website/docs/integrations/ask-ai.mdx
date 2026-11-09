@@ -1,0 +1,52 @@
+---
+title: Ask AI
+description: Add an optional AI assistant to your documentation with Biel.
+---
+
+Quiet supports [Biel](https://biel.ai/) through its Docusaurus plugin. The assistant appears as a floating **Ask AI** button.
+
+The plugin is optional. Quiet does not load a service or create an account for you.
+
+## Install the plugin
+
+```bash
+npm install docusaurus-biel
+```
+
+```js title="docusaurus.config.js"
+export default {
+  themes: ["docusaurus-theme-quiet"],
+  plugins: [
+    [
+      "docusaurus-biel",
+      {
+        project: "YOUR_PROJECT_ID",
+        bielButtonText: "Ask AI",
+        headerTitle: "Documentation assistant",
+        modalPosition: "sidebar-right",
+      },
+    ],
+  ],
+  themeConfig: {
+    navbar: { items: [{ type: "search", position: "right" }] },
+  },
+};
+```
+
+Replace the project ID with your Biel project. The plugin loads the widget and adds the floating Ask AI control.
+
+## Appearance
+
+Quiet maps its fonts, surfaces, borders and colors to the widget's public CSS variables. It also styles the floating button. Keep any product-specific questions and welcome message in your own configuration.
+
+For another provider, keep its loader and controls in your site's configuration. Quiet does not replace the assistant's focus management, citations or access rules.
+
+## Search
+
+Use [Search](./search.mdx) to add a larger control in the center of the navigation. The same Biel project can power both interfaces.
+
+## Verify
+
+Open and close the assistant with a keyboard. Check source links, dark mode and the mobile layout. Run test questions only against a project intended for testing.
+
+[Biel's Docusaurus setup](https://docs.biel.ai/installation/docusaurus)

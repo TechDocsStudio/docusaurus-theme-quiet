@@ -1,0 +1,45 @@
+---
+title: Steps
+description: Write a sequence of actions with Quiet steps.
+---
+
+## Example
+
+<Steps>
+  <Step title="Install the package">
+
+    ```bash
+    npm install docusaurus-theme-quiet
+    ```
+
+  </Step>
+  <Step title="Enable the theme">
+
+    Add `docusaurus-theme-quiet` to your Docusaurus `themes` array.
+
+  </Step>
+  <Step title="Check the result">
+
+    Restart the server and open a documentation page.
+
+  </Step>
+</Steps>
+
+````mdx
+<Steps>
+  <Step title="Install the package">
+
+    ```bash
+    npm install docusaurus-theme-quiet
+    ```
+
+  </Step>
+  <Step title="Enable the theme">
+
+    Add the theme to your configuration.
+
+  </Step>
+</Steps>
+````
+
+Steps use an ordered list. Each `Step` title is an H3, so place the group under an H2 section. Use a normal numbered list for short instructions.

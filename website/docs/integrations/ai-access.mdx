@@ -1,0 +1,65 @@
+---
+title: Access for AI tools
+description: Preserve readable HTML and add optional Markdown exports for AI tools.
+---
+
+Quiet keeps Docusaurus's generated HTML, headings, canonical URLs, metadata and links. It does not add a client-only document shell.
+
+## Markdown and llms.txt
+
+Use [docusaurus-plugin-llms](https://github.com/rachfop/docusaurus-plugin-llms) to generate a documentation index and readable Markdown files. Biel's docs use this plugin.
+
+```bash
+npm install --save-dev docusaurus-plugin-llms
+```
+
+```js title="docusaurus.config.js"
+plugins: [
+  [
+    "docusaurus-plugin-llms",
+    {
+      generateLLMsTxt: true,
+      generateLLMsFullTxt: true,
+      generateMarkdownFiles: true,
+      excludeImports: true,
+      removeDuplicateHeadings: true,
+      ignoreFiles: ["private/**", "archive/**"],
+    },
+  ],
+];
+```
+
+Review the generated files after `npm run build`. Confirm that MDX components contain useful text in their exports. Excluding a page from an index is not access control.
+
+## MCP discovery
+
+Expose an MCP endpoint from your retrieval provider. Add a discoverable URL in the document head:
+
+```js title="docusaurus.config.js"
+headTags: [
+  {
+    tagName: "link",
+    attributes: {
+      rel: "mcp",
+      href: "https://mcp.example.com/mcp",
+    },
+  },
+];
+```
+
+Replace the example with a working endpoint. Keep credentials out of public URLs. A discovery link does not create an MCP server or connect a client automatically.
+
+For Biel, copy the project endpoint from its configuration. [Biel's MCP guide](https://docs.biel.ai/integrations/mcp-server) covers public and authenticated access.
+
+## Diagrams and reference
+
+Keep a text explanation beside a [diagram](./diagrams.mdx). Generate [API reference](./openapi.mdx) from the same specification used by the product. These sources should remain useful without running an interactive widget.
+
+## Verify the output
+
+- Read the page HTML with JavaScript disabled.
+- Check canonical URLs, sitemap entries and heading order.
+- Check export exclusions and links after every build.
+- Keep examples, prerequisites and limits in the page text.
+
+These checks improve access to your content. They do not guarantee rankings or citations by an AI tool.

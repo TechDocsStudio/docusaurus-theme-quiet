@@ -1,0 +1,33 @@
+---
+title: Diagrams
+description: Render Mermaid diagrams through Docusaurus's optional Mermaid theme.
+---
+
+Quiet works with Docusaurus's Mermaid theme. Install the version matching your Docusaurus installation.
+
+```bash
+npm install @docusaurus/theme-mermaid @mermaid-js/layout-elk
+```
+
+```js
+markdown: { mermaid: true },
+themes: ['docusaurus-theme-quiet', '@docusaurus/theme-mermaid'],
+```
+
+## Example
+
+```mermaid
+flowchart LR
+  Write[Write a document] --> Review[Review]
+  Review --> Publish[Publish]
+```
+
+````md
+```mermaid
+flowchart LR
+  Write[Write a document] --> Review[Review]
+  Review --> Publish[Publish]
+```
+````
+
+This flow shows a document moving from writing to review and publication. Include a text explanation so the diagram is not the only source of information.

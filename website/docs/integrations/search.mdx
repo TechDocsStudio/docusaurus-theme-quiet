@@ -1,0 +1,57 @@
+---
+title: Search
+description: Add centered documentation search with Biel or your preferred search provider.
+---
+
+Quiet centers the navbar search control on wide screens. It keeps the brand, navigation and mobile menu available around it. The search implementation belongs to your site.
+
+## Biel
+
+Install the plugin using [Ask AI](./ask-ai.mdx). It loads the web components used by search and the assistant.
+
+Add the navbar item:
+
+```js title="docusaurus.config.js"
+themeConfig: {
+  navbar: {
+    items: [{ type: "search", position: "right" }];
+  }
+}
+```
+
+Create the search control:
+
+```jsx title="src/theme/SearchBar/index.jsx"
+import React from "react";
+
+export default function SearchBar() {
+  return (
+    <biel-search-button
+      project="YOUR_PROJECT_ID"
+      header-title="Ask AI"
+      button-style="rounded"
+      clean-titles="true"
+    >
+      Search or ask AI
+    </biel-search-button>
+  );
+}
+```
+
+Use your own project ID. Never put a server API key in this component.
+
+## Other providers
+
+Docusaurus search integrations can supply their own `SearchBar`. Quiet styles the surrounding navigation without replacing that control. This documentation site uses a small local title and description index, with no external requests.
+
+## Width
+
+Override the width in your site's CSS if your navigation needs more room:
+
+```css
+.quiet-navbar-search {
+  width: min(440px, 34vw);
+}
+```
+
+Test the search dialog, keyboard shortcut, result links and focus return on desktop and mobile.

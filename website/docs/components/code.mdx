@@ -1,0 +1,38 @@
+---
+title: Code
+description: Commands, file titles and highlighted lines using Docusaurus code blocks.
+---
+
+Label the language. Include only the code needed for the task.
+
+## Command
+
+```bash
+npm install docusaurus-theme-quiet
+```
+
+````md
+```bash
+npm install docusaurus-theme-quiet
+```
+````
+
+## File and highlighted line
+
+```js title="docusaurus.config.js" {3}
+export default {
+  presets: ["classic"],
+  themes: ["docusaurus-theme-quiet"],
+};
+```
+
+````md
+```js title="docusaurus.config.js" {3}
+export default {
+  presets: ["classic"],
+  themes: ["docusaurus-theme-quiet"],
+};
+```
+````
+
+The copy control and syntax highlighting come from Classic. Quiet does not add a second implementation.

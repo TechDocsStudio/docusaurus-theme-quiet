@@ -1,0 +1,168 @@
+---
+title: Branding
+description: Configure colors, logos, favicon and separate fonts for the brand, headings, body and code.
+---
+
+## Icon and text
+
+Put your icon in `static/img/`. Use `title` for editable brand text:
+
+```js title="docusaurus.config.js"
+export default {
+  favicon: "img/favicon.svg",
+  themeConfig: {
+    navbar: {
+      title: "Acme docs",
+      logo: {
+        alt: "",
+        src: "img/icon.svg",
+        srcDark: "img/icon-dark.svg",
+        width: 28,
+        height: 28,
+      },
+    },
+  },
+};
+```
+
+An empty `alt` avoids repeating the adjacent brand name. `srcDark` is optional.
+
+## Full logo
+
+For an image containing both icon and lettering, omit the navbar title. SVG, PNG and JPG files work:
+
+```js title="docusaurus.config.js"
+export default {
+  themeConfig: {
+    navbar: {
+      logo: {
+        alt: "Acme docs",
+        src: "img/acme-logo.svg",
+        srcDark: "img/acme-logo-dark.svg",
+        width: 142,
+        height: 28,
+      },
+    },
+  },
+};
+```
+
+Keep whitespace inside the image small. Quiet does not recolor your logo. Check its contrast in both modes and its width on a phone.
+
+For text only, set `navbar.title` and omit `navbar.logo`. No Quiet branding is built into the package.
+
+## Favicon
+
+Set `favicon` to a file relative to `static/`. SVG, ICO and PNG are common choices. Use a simple mark that remains readable at 16px.
+
+Add optional browser icons through standard head tags:
+
+```js
+headTags: [
+  {
+    tagName: "link",
+    attributes: {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/img/apple-touch-icon.png",
+    },
+  },
+];
+```
+
+Include your site's base path in custom `href` values when deploying below a subdirectory.
+
+## Colors
+
+Set a readable accent for each color mode. Options accept six-digit hex colors.
+
+```js title="docusaurus.config.js"
+export default {
+  themes: [
+    [
+      "docusaurus-theme-quiet",
+      {
+        accentColor: "#176a4a",
+        accentColorDark: "#8de1bb",
+      },
+    ],
+  ],
+};
+```
+
+Check your chosen colors against their backgrounds. Quiet cannot guarantee contrast for arbitrary brand colors.
+
+## Fonts
+
+Quiet does not download fonts. Add a stylesheet through the Classic preset:
+
+```js
+presets: [
+  [
+    "classic",
+    {
+      theme: { customCss: require.resolve("./src/css/custom.css") },
+    },
+  ],
+];
+```
+
+Choose independent fonts for each role:
+
+```css title="src/css/custom.css"
+:root {
+  --quiet-font-body: system-ui, sans-serif;
+  --quiet-font-heading: "Acme Display", system-ui, sans-serif;
+  --quiet-font-logo: "Acme Display", system-ui, sans-serif;
+  --quiet-font-code: ui-monospace, monospace;
+  --quiet-content-width: 48rem;
+  --quiet-radius: 8px;
+}
+```
+
+`--quiet-font-logo` affects the navbar title. It cannot change text already drawn inside an image. Headings and the logo fall back to the body font when a custom font is unavailable.
+
+### Self-host a font
+
+Put licensed files in `static/fonts/` and load them from your stylesheet:
+
+```css title="src/css/custom.css"
+@font-face {
+  font-family: "Acme Display";
+  src: url("../../static/fonts/acme-display.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+```
+
+Declare only weights included in your file. Add a separate face for italic if required.
+
+### Change one section
+
+Use your own class in MDX:
+
+```mdx
+<section className="product-reference">
+
+## Product reference
+
+Content using a different heading font.
+
+</section>
+```
+
+```css
+.product-reference {
+  --ifm-heading-font-family: Georgia, serif;
+}
+```
+
+## Dark mode
+
+Keep the built-in toggle or use the reader's preference:
+
+```js
+colorMode: { defaultMode: "light", respectPrefersColorScheme: true }
+```
+
+[Standard Docusaurus brand configuration](https://docusaurus.io/docs/api/themes/configuration#navbar-logo)

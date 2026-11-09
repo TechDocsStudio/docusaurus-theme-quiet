@@ -1,0 +1,65 @@
+---
+title: User feedback
+description: Add per-page thumbs up and thumbs down with PushFeedback.
+---
+
+Quiet supports [PushFeedback](https://pushfeedback.com/) for feedback below each document. The integration is optional and uses your own project.
+
+## Install
+
+```bash
+npm install pushfeedback-react
+```
+
+Wrap the footer in your site. The theme's footer remains intact:
+
+```jsx title="src/theme/DocItem/Footer/index.jsx"
+import React, { useEffect } from "react";
+import Footer from "@theme-original/DocItem/Footer";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { FeedbackButton } from "pushfeedback-react";
+import { defineCustomElements } from "pushfeedback/loader";
+import "pushfeedback/dist/pushfeedback/pushfeedback.css";
+
+export default function DocFooter(props) {
+  useEffect(() => {
+    defineCustomElements(window);
+  }, []);
+  return (
+    <>
+      <div className="feedback-widget">
+        <span>Was this helpful?</span>
+        <div className="pushfeedback-thumbs-row">
+          <FeedbackButton
+            project="YOUR_PROJECT_ID"
+            rating="1"
+            button-style="default"
+            modal-position="center"
+          >
+            <ThumbsUp size={18} aria-hidden="true" /> Helpful
+          </FeedbackButton>
+          <FeedbackButton
+            project="YOUR_PROJECT_ID"
+            rating="0"
+            button-style="default"
+            modal-position="center"
+          >
+            <ThumbsDown size={18} aria-hidden="true" /> Not helpful
+          </FeedbackButton>
+        </div>
+      </div>
+      <Footer {...props} />
+    </>
+  );
+}
+```
+
+Install `lucide-react` in your site if you use these icons. The visible labels give both controls accessible names. Each button opens the configured feedback form with its rating selected.
+
+You do not need a floating feedback button as well. Keep collection fields and delivery settings in PushFeedback.
+
+## Verify
+
+Check the two forms, selected ratings, page URL, focus and close behavior. Submit tests only to a project intended for testing.
+
+[PushFeedback's Docusaurus guide](https://docs.pushfeedback.com/installation/docusaurus#like-and-dislike-buttons)

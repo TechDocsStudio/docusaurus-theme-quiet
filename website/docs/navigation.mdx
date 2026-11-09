@@ -1,0 +1,42 @@
+---
+title: Navigation
+description: Organize guides, references and integrations using native Docusaurus navigation.
+---
+
+Keep the navigation about reader tasks. Use one sidebar until separate products or references need their own.
+
+## Sidebar
+
+```js title="sidebars.js"
+export default {
+  docs: [
+    "quickstart",
+    { type: "category", label: "Guides", items: ["connect", "publish"] },
+    { type: "category", label: "Reference", items: ["configuration", "api"] },
+  ],
+};
+```
+
+Give category pages a useful introduction or link them to a document. Avoid a category with a single child that repeats its title.
+
+## Navigation bar
+
+Use standard `themeConfig.navbar.items`. Quiet preserves dropdowns, version selectors, locale selectors and the mobile menu.
+
+```js
+navbar: {
+  title: 'Acme docs',
+  items: [
+    { type: 'docSidebar', sidebarId: 'docs', label: 'Guides' },
+    { href: 'https://github.com/acme/project', label: 'GitHub', position: 'right' },
+  ],
+}
+```
+
+## Page outline
+
+Use one H1 per page. Put tasks under H2 headings and their steps under H3. Docusaurus builds the page outline from those headings.
+
+## Existing sites
+
+Keep URLs, document IDs, sidebar IDs, redirects, locale paths and version paths when changing the theme. A visual refresh does not need a content migration.

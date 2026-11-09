@@ -1,0 +1,50 @@
+---
+title: Tabs
+description: Present alternative instructions with native Docusaurus tabs.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Use tabs for alternatives. Keep required steps visible outside the tabs.
+
+<Tabs groupId="package-manager">
+<TabItem value="npm" label="npm" default>
+
+```bash
+npm install docusaurus-theme-quiet
+```
+
+</TabItem>
+<TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm add docusaurus-theme-quiet
+```
+
+</TabItem>
+</Tabs>
+
+````mdx
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm" label="npm" default>
+
+    ```bash
+    npm install docusaurus-theme-quiet
+    ```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+    ```bash
+    pnpm add docusaurus-theme-quiet
+    ```
+
+  </TabItem>
+</Tabs>
+````
+
+Use the arrow keys to move between tabs. A shared `groupId` remembers the selected alternative across pages.

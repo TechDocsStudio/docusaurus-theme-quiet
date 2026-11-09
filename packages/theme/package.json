@@ -1,0 +1,49 @@
+{
+  "name": "docusaurus-theme-quiet",
+  "version": "0.1.0",
+  "description": "A restrained, accessible Docusaurus theme built on theme-classic.",
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "files": [
+    "index.cjs",
+    "index.d.ts",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TechDocsStudio/docusaurus-theme-quiet.git",
+    "directory": "packages/theme"
+  },
+  "homepage": "https://github.com/TechDocsStudio/docusaurus-theme-quiet#readme",
+  "bugs": {
+    "url": "https://github.com/TechDocsStudio/docusaurus-theme-quiet/issues"
+  },
+  "keywords": [
+    "docusaurus",
+    "docusaurus-theme",
+    "documentation",
+    "theme",
+    "minimal"
+  ],
+  "license": "MIT",
+  "sideEffects": [
+    "**/*.css",
+    "./src/client.js"
+  ],
+  "peerDependencies": {
+    "@docusaurus/core": "^3.10.0",
+    "@docusaurus/theme-classic": "^3.10.0",
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0"
+  }
+}

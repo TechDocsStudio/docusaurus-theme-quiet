@@ -1,0 +1,45 @@
+---
+title: Contributing
+description: Develop Quiet, verify a package and prepare a release.
+---
+
+## Run the project
+
+```bash
+git clone https://github.com/TechDocsStudio/docusaurus-theme-quiet.git
+cd docusaurus-theme-quiet
+npm ci
+npm start
+```
+
+The website runs on port 4210. Changes to the package update its component examples.
+
+## Make a change
+
+Keep the package small. Prefer Classic behavior and semantic CSS selectors to copied components. Add an example for every public component and a migration note for a breaking change.
+
+## Verify
+
+```bash
+npm test
+npm run lint
+npm run build
+npm run pack:theme
+```
+
+Test keyboard controls, 320px layouts, light and dark mode. Install the tarball into a consumer before proposing a release.
+
+## Local consumer previews
+
+```bash
+QUIET_BIEL_SOURCE=/path/to/biel-docs npm run preview:biel
+QUIET_PUSHFEEDBACK_SOURCE=/path/to/pushfeedback-docs npm run preview:pushfeedback
+```
+
+These commands snapshot committed files into ignored `.local/` directories. They do not modify the source checkout or include its untracked files. The snapshot uses its own dependencies and a local tarball of the theme.
+
+## Release
+
+A maintainer reviews the package contents and consumer results, updates the version and changelog, then publishes with npm's authentication requirements. CI never publishes on an ordinary push.
+
+See the repository's contributing guide for checks and release commands.

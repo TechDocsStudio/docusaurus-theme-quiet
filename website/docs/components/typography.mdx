@@ -1,0 +1,46 @@
+---
+title: Typography
+description: Semantic text, lists and links in Quiet.
+---
+
+Reading text is 17px. Interface labels and code stay at least 14px. Quiet preserves the reader's browser zoom.
+
+## Headings
+
+A page has one H1. H2 introduces a section. H3 introduces a subsection. Headings use sentence case.
+
+### A subsection
+
+Use **bold** for an action or value and `code` for a literal identifier. Link to a [specific task](../installation.mdx).
+
+```md
+## Connect a source
+
+Choose **Add source** and enter your website URL.
+
+### Check the result
+
+Wait for the status to change to `Indexed`.
+```
+
+## Lists
+
+- First requirement
+- Second requirement
+
+1. Connect the source.
+2. Check the result.
+
+## Quote
+
+> Keep the information that changes what the reader needs to do.
+
+## Images
+
+Give screenshots a useful alternative text. Store images with the docs or in `static/`.
+
+```md
+![The source status is Indexed](./images/source-status.png)
+```
+
+For links to files in `static/`, account for the site's `baseUrl`. Relative document images are resolved by Docusaurus.

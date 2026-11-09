@@ -1,0 +1,67 @@
+---
+title: OpenAPI reference
+description: Generate and style an API reference with Docusaurus OpenAPI Docs and Quiet.
+---
+
+Quiet works alongside [Docusaurus OpenAPI Docs](https://docusaurus-openapi.tryingpan.dev/), the plugin and theme used by [Biel's API reference](https://docs.biel.ai/api/biel-ai-api).
+
+## Install
+
+Use compatible versions of the plugin and its theme. The 5.x series supports Docusaurus 3.10+.
+
+```bash
+npm install docusaurus-plugin-openapi-docs@^5 docusaurus-theme-openapi-docs@^5
+```
+
+## Configure
+
+Keep the specification as the source. Generated files belong in a separate directory:
+
+```js title="docusaurus.config.js"
+presets: [["classic", {
+  docs: {
+    sidebarPath: require.resolve("./sidebars.js"),
+    docItemComponent: "@theme/ApiItem",
+  },
+}]],
+themes: ["docusaurus-theme-openapi-docs", "docusaurus-theme-quiet"],
+plugins: [["docusaurus-plugin-openapi-docs", {
+  id: "api",
+  docsPluginId: "classic",
+  config: {
+    service: {
+      specPath: "openapi/service.yaml",
+      outputDir: "docs/api",
+      sidebarOptions: { groupPathsBy: "tag" },
+    },
+  },
+}]],
+```
+
+Generate the reference:
+
+```bash
+npx docusaurus gen-api-docs all
+```
+
+Add the generated sidebar to your own `sidebars.js`. Follow the plugin's [sidebar configuration](https://docusaurus-openapi.tryingpan.dev/sidebars/) for the structure your API needs.
+
+## Appearance
+
+Quiet maps the plugin's public CSS variables to its surfaces, borders, radii and 14px minimum code and form text. Schemas, tabs, request examples and API Explorer stay owned by the OpenAPI theme.
+
+```css title="src/css/custom.css"
+html:root {
+  --openapi-card-background-color: var(--quiet-paper);
+  --openapi-explorer-border-color: var(--quiet-line);
+  --openapi-input-background: var(--quiet-paper);
+  --openapi-explorer-font-size-input: 14px;
+  --openapi-explorer-font-size-code: 14px;
+}
+```
+
+## Verify
+
+Build the site. Open an operation with parameters, a request body and several responses in both color modes. Check schema expansion, code samples, long paths and mobile overflow.
+
+Use a sandbox endpoint when testing requests. Visual changes should not change API authentication, execution or validation.

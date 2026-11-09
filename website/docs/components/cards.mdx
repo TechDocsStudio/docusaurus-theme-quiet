@@ -1,0 +1,70 @@
+---
+title: Cards
+description: Link to related tasks with Quiet cards.
+---
+
+## Example
+
+<CardGrid>
+  <Card to="/branding" title="Change the brand">
+    Set your colors and logo.
+  </Card>
+  <Card to="/navigation" title="Organize navigation">
+    Keep guides and reference easy to find.
+  </Card>
+</CardGrid>
+
+```mdx
+<CardGrid>
+  <Card to="/branding" title="Change the brand">
+    Set your colors and logo.
+  </Card>
+  <Card to="/navigation" title="Organize navigation">
+    Keep guides and reference easy to find.
+  </Card>
+</CardGrid>
+```
+
+Cards are links, not buttons. `to` and `title` are required. The description is optional. The grid becomes one column on phones.
+
+These components are available in MDX when Quiet is enabled. A site's own `MDXComponents` override must merge the upstream component map to retain them.
+
+## Generated category cards
+
+Docusaurus's generated indexes use the same borders and typography. Quiet removes the default document and folder emojis while preserving links, descriptions and localized item counts.
+
+import DocCardList from "@theme/DocCardList";
+
+<DocCardList
+  items={[
+    {
+      type: "link",
+      label: "Typography",
+      docId: "components/typography",
+      href: "/components/typography",
+    },
+    {
+      type: "link",
+      label: "Code",
+      docId: "components/code",
+      href: "/components/code",
+    },
+  ]}
+/>
+
+To generate a category page, use a standard sidebar category:
+
+```js title="sidebars.js"
+module.exports = {
+  docs: [
+    {
+      type: "category",
+      label: "Guides",
+      link: { type: "generated-index" },
+      items: ["getting-started", "configuration"],
+    },
+  ],
+};
+```
+
+[The integrations index](/integrations) is a generated category page.
