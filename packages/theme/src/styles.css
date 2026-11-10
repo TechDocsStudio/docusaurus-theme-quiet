@@ -1,9 +1,9 @@
 /* Semantic classes belong to Docusaurus. Quiet adds tokens and four MDX components. */
-.theme-announcement-bar a,
-.theme-announcement-bar a:visited,
-.theme-announcement-bar a:hover,
-.theme-announcement-bar a:focus-visible {
-  color: inherit;
+html .theme-announcement-bar a,
+html .theme-announcement-bar a:visited,
+html .theme-announcement-bar a:hover,
+html .theme-announcement-bar a:focus-visible {
+  color: var(--ifm-link-color);
 }
 
 :root {
@@ -155,8 +155,10 @@ h1 {
   object-fit: contain;
 }
 .navbar__link {
+  flex-shrink: 0;
   font-size: 15px;
   font-weight: 450;
+  white-space: nowrap;
 }
 .navbar__link--active {
   color: var(--quiet-accent);
@@ -675,9 +677,13 @@ html[dir="rtl"] .quiet-mobile-back svg {
 :root {
   --quiet-caret-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23747b84' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
 }
-.quiet-navbar-search {
+.navbar .quiet-navbar-search {
+  box-sizing: border-box;
+  flex: 0 1 400px;
+  min-width: 0;
   width: min(400px, 34vw);
   margin: 0;
+  padding: 0;
 }
 .quiet-navbar-search:empty {
   display: none;
@@ -688,7 +694,19 @@ html[dir="rtl"] .quiet-mobile-back svg {
   --biel-search-button-max-width: 100%;
   --biel-search-button-text-font-size: 15px;
 }
-@media (min-width: 1180px) {
+.quiet-navbar-search biel-search-button::part(button) {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+@media (min-width: 997px) and (max-width: 1439px) {
+  .navbar__items--right {
+    min-width: 0;
+  }
+  .navbar .quiet-navbar-search {
+    margin-inline-end: 0.75rem;
+  }
+}
+@media (min-width: 1440px) {
   .quiet-navbar-search {
     position: absolute;
     inset-inline-start: 50%;
@@ -708,6 +726,7 @@ html[dir="rtl"] .quiet-mobile-back svg {
   }
   .navbar .quiet-navbar-search {
     position: static;
+    flex: none;
     width: auto;
   }
   .quiet-navbar-search biel-search-button {

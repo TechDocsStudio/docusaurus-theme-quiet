@@ -104,10 +104,6 @@
 [data-theme="dark"] .quiet-navbar-palette .quiet-palette-dot {
   background: var(--palette-dark);
 }
-.quiet-navbar-palette-mobile {
-  margin: 0.5rem 0.75rem;
-}
-
 .theme-announcement-bar .close {
   color: inherit;
   opacity: 0.8;

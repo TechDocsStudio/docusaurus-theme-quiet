@@ -15,6 +15,7 @@ export default function PaletteSelector({ mobile }) {
     window.addEventListener(paletteEvent, sync);
     return () => window.removeEventListener(paletteEvent, sync);
   }, []);
+  if (mobile) return null;
   const index = palettes.findIndex(
     (item) =>
       item.accentColor === palette.accentColor &&
@@ -25,7 +26,7 @@ export default function PaletteSelector({ mobile }) {
   return (
     <button
       type="button"
-      className={`quiet-navbar-palette ${mobile ? "quiet-navbar-palette-mobile" : "navbar__item"}`}
+      className="quiet-navbar-palette"
       aria-label={`Change color palette (currently ${name}; next ${next.name})`}
       title={`Color palette: ${name}`}
       onClick={() => savePalette(next)}
