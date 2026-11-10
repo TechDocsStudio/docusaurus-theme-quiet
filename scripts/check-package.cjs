@@ -4,6 +4,20 @@ const path = require("node:path");
 const { execFileSync } = require("node:child_process");
 
 const root = path.resolve(__dirname, "..");
+assert.equal(
+  require("../website/package.json").dependencies["docusaurus-theme-quiet"],
+  "file:../packages/theme",
+  "The demo must depend on the theme source in this repository.",
+);
+assert.equal(
+  fs.realpathSync(
+    require.resolve("docusaurus-theme-quiet/package.json", {
+      paths: [path.join(root, "website")],
+    }),
+  ),
+  fs.realpathSync(path.join(root, "packages/theme/package.json")),
+  "The demo must resolve the local theme, not a registry installation.",
+);
 const [packed] = JSON.parse(
   execFileSync(
     "npm",
