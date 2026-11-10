@@ -24,6 +24,15 @@ module.exports = {
     require.resolve("./src/mermaid-client.js"),
     require.resolve("./src/brand-client.js"),
   ],
+  scripts: [
+    {
+      src: "https://analytics.techdocs.studio/script.js",
+      defer: true,
+      "data-website-id": "8ae5d5f9-fef5-491b-8fbf-50554b8db2eb",
+      "data-domains": "quiet.techdocs.studio",
+      "data-do-not-track": "true",
+    },
+  ],
   trailingSlash: false,
   onBrokenLinks: "throw",
   markdown: { mermaid: true, hooks: { onBrokenMarkdownLinks: "throw" } },
