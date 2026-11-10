@@ -354,33 +354,37 @@ details.alert {
   box-shadow: none;
   padding: 0;
 }
-details.alert > summary {
+html details.alert > summary {
+  position: relative;
+  display: block;
   padding-block: 1rem;
   padding-inline: 1.75rem 0.5rem;
   font-size: 16px;
   font-weight: 500;
+  line-height: 1.5;
   cursor: pointer;
 }
-details.alert > summary::before {
-  top: 1.42rem;
-  left: auto;
-  right: auto;
-  inset-inline-start: 0.2rem;
-  width: 7px;
-  height: 7px;
+html details.alert > summary::before {
+  position: absolute;
+  top: calc(1rem + 0.75em - 7px);
+  inset-inline: 0.2rem auto;
+  width: 14px;
+  height: 14px;
   border: 0;
-  border-inline-end: 1.5px solid var(--quiet-muted);
-  border-block-start: 1.5px solid var(--quiet-muted);
-  transform: rotate(45deg) !important;
+  background: var(--quiet-caret-icon) center / 14px 14px no-repeat;
+  transform: none !important;
+  transform-origin: center;
 }
-details.alert[open] > summary::before {
-  transform: rotate(135deg) !important;
+html details.alert[data-collapsed="false"] > summary::before,
+html details.alert[open]:not([data-collapsed]) > summary::before {
+  transform: rotate(90deg) !important;
 }
 html[dir="rtl"] details.alert > summary::before {
-  transform: rotate(-135deg) !important;
+  transform: rotate(180deg) !important;
 }
-html[dir="rtl"] details.alert[open] > summary::before {
-  transform: rotate(-225deg) !important;
+html[dir="rtl"] details.alert[data-collapsed="false"] > summary::before,
+html[dir="rtl"] details.alert[open]:not([data-collapsed]) > summary::before {
+  transform: rotate(90deg) !important;
 }
 details.alert > div {
   padding-inline: 1.75rem 0.5rem;
@@ -671,12 +675,25 @@ biel-search-button:not(.hydrated) {
 }
 @media (max-width: 996px) {
   .quiet-navbar-search {
-    width: min(360px, 45vw);
+    width: auto;
   }
-}
-@media (max-width: 480px) {
-  .quiet-navbar-search {
-    width: min(170px, 43vw);
+  .quiet-navbar-search biel-search-button {
+    width: 44px;
+    --biel-search-button-width: 44px;
+    --biel-search-button-max-width: 44px;
+    --biel-search-button-padding: 0;
+    --biel-search-button-text-display: none;
+    --biel-search-button-ctrl-k-display: none;
+    --biel-search-button-icon-margin-right: 0;
+    --biel-search-button-icon-size: 22px;
+  }
+  .quiet-navbar-search biel-search-button::part(button) {
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    border: 0;
+    background: transparent;
   }
 }
 /* Public CSS variables exposed by the optional OpenAPI theme. */
@@ -867,17 +884,18 @@ html .openapi-explorer__response-container:hover {
   box-shadow: none;
 }
 
-.quiet-toc-toggle {
+html .quiet-toc-toggle {
   font-size: 14px;
 }
-.quiet-toc-toggle::after {
+html .quiet-toc-toggle::after {
   background: var(--quiet-caret-icon) center / 14px 14px no-repeat;
   width: 14px;
   height: 14px;
+  flex: 0 0 14px;
   transform: rotate(90deg);
   filter: none;
 }
-.quiet-toc-toggle--open::after {
+html .quiet-toc-toggle--open::after {
   transform: rotate(-90deg);
 }
 
