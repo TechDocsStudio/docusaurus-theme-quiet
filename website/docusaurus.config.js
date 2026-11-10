@@ -120,6 +120,22 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    image: "https://quiet.techdocs.studio/img/quiet-og.png",
+    metadata: [
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      {
+        property: "og:image:alt",
+        content:
+          "Quiet, a minimal Docusaurus theme, with a documentation preview.",
+      },
+      {
+        name: "twitter:image:alt",
+        content:
+          "Quiet, a minimal Docusaurus theme, with a documentation preview.",
+      },
+    ],
     announcementBar: {
       id: "techdocs-studio",
       content:
