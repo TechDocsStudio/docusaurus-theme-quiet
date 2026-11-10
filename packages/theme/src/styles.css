@@ -1,4 +1,11 @@
 /* Semantic classes belong to Docusaurus. Quiet adds tokens and four MDX components. */
+.theme-announcement-bar a,
+.theme-announcement-bar a:visited,
+.theme-announcement-bar a:hover,
+.theme-announcement-bar a:focus-visible {
+  color: inherit;
+}
+
 :root {
   --quiet-paper: #ffffff;
   --quiet-surface: #f6f7f8;
@@ -127,7 +134,7 @@ h1 {
   padding-inline: 1.5rem;
 }
 .navbar__brand {
-  gap: 0.35rem;
+  gap: 0.2rem;
 }
 .navbar__title {
   font-family: var(
@@ -692,7 +699,15 @@ html[dir="rtl"] .quiet-mobile-back svg {
   }
 }
 @media (max-width: 996px) {
-  .quiet-navbar-search {
+  .navbar__items--right .quiet-navbar-color-mode {
+    display: flex;
+    flex: none;
+  }
+  .navbar__items--right > .quiet-navbar-search {
+    order: -1;
+  }
+  .navbar .quiet-navbar-search {
+    position: static;
     width: auto;
   }
   .quiet-navbar-search biel-search-button {
@@ -713,6 +728,9 @@ html[dir="rtl"] .quiet-mobile-back svg {
     border: 0;
     background: transparent;
   }
+}
+.navbar-sidebar__brand .quiet-navbar-color-mode {
+  display: none;
 }
 /* Public CSS variables exposed by the optional OpenAPI theme. */
 html:root {
@@ -1327,6 +1345,20 @@ html .theme-api-markdown details.openapi-markdown__details > summary::before {
   flex: none;
 }
 
-.theme-doc-version-badge + .openapi__heading {
-  margin-top: 0.65rem;
+/* The optional OpenAPI introduction shares the guide's title scale. */
+.markdown:has(> .theme-doc-version-badge):has(> h1.openapi__heading) {
+  display: flex;
+  flex-direction: column;
+}
+.markdown:has(> .theme-doc-version-badge) > h1.openapi__heading {
+  order: -2;
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  margin-top: 0;
+  margin-bottom: 0.75rem !important;
+}
+.markdown:has(> h1.openapi__heading) > .theme-doc-version-badge {
+  order: -1;
+  align-self: flex-start;
+  margin-bottom: var(--ifm-leading);
+  font-size: 14px;
 }

@@ -11,9 +11,6 @@
   font-weight: 100 900;
 }
 
-.navbar__brand {
-  gap: 0.35rem;
-}
 .navbar__logo {
   margin-inline: 0;
   height: 26px;

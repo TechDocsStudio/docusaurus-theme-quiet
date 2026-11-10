@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-theme-quiet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A restrained, accessible Docusaurus theme built on theme-classic.",
   "main": "index.cjs",
   "types": "index.d.ts",
