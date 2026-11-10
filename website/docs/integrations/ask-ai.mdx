@@ -47,6 +47,17 @@ When Biel is configured, **Ask AI** in the page actions opens the existing assis
 
 Quiet maps its fonts, surfaces, borders and colors to the widget's public CSS variables. It also styles the floating button. Keep any product-specific questions and welcome message in your own configuration.
 
+Messages, suggestions and the message input use 16px text. Supporting labels and code use 14px. Override individual variables in your site's stylesheet:
+
+```css title="src/css/custom.css"
+biel-bot,
+biel-search {
+  --biel-message-font-size: 16px;
+  --biel-suggested-questions-font-size: 16px;
+  --biel-text-font-size: 16px;
+}
+```
+
 For another provider, keep its loader and controls in your site's configuration. Quiet does not replace the assistant's focus management, citations or access rules.
 
 ## Search

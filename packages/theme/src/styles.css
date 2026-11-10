@@ -191,6 +191,12 @@ h1 {
 .theme-doc-breadcrumbs .breadcrumbs__item:first-child .breadcrumbs__link {
   padding-inline-start: 0;
 }
+.theme-doc-breadcrumbs a.breadcrumbs__link:hover {
+  background: transparent;
+  color: var(--quiet-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .theme-doc-markdown {
   max-width: var(--quiet-content-width, 48rem);
   padding-block: 0.5rem 2rem;
@@ -575,6 +581,18 @@ biel-search-button:not(.hydrated) {
     padding-top: 1rem;
   }
 }
+.quiet-mobile-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: start;
+}
+.quiet-mobile-back svg {
+  flex: none;
+}
+html[dir="rtl"] .quiet-mobile-back svg {
+  transform: rotate(180deg);
+}
 @media (max-width: 560px) {
   .quiet-card-grid {
     grid-template-columns: 1fr;
@@ -719,6 +737,10 @@ html:root {
   box-shadow: none;
 }
 /* Optional integrations inherit tokens. No service is loaded by this stylesheet. */
+biel-bot,
+biel-search {
+  font-size: 16px;
+}
 biel-search-button,
 biel-button,
 biel-bot {
@@ -757,6 +779,7 @@ biel-bot {
   height: var(--quiet-feedback-size);
 }
 .pushfeedback-thumbs-row .quiet-feedback-thumb::part(button) {
+  z-index: 0;
   width: var(--quiet-feedback-size);
   height: var(--quiet-feedback-size);
   min-width: 0;
@@ -799,6 +822,14 @@ html:root {
   --biel-text-font-size: 16px;
   --biel-text-lg-font-size: 16px;
   --biel-text-xl-font-size: 18px;
+  --biel-header-font-size: 18px;
+  --biel-message-font-size: 16px;
+  --biel-message-label-font-size: 14px;
+  --biel-message-code-font-size: 14px;
+  --biel-message-source-font-size: 14px;
+  --biel-suggested-questions-font-size: 16px;
+  --biel-suggested-questions-title-font-size: 14px;
+  --biel-footer-font-size: 14px;
   --biel-primary-color: var(--quiet-accent);
   --biel-primary-light-color: var(--quiet-accent);
   --biel-primary-hover-color: var(--quiet-accent-hover);

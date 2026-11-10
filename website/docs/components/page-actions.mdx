@@ -5,6 +5,12 @@ description: Copy pages as Markdown, open an assistant and configure document ac
 
 **Copy page** copies the document as Markdown. The adjacent menu holds optional actions for your assistant, source file, editor and MCP server.
 
+## Where actions appear
+
+The menu appears beside the breadcrumbs on documentation pages, including generated OpenAPI pages that use Docusaurus's document layout. On narrow screens it wraps below the breadcrumbs. Generated category indexes, blog posts and standalone pages do not show it.
+
+Copy page works immediately, without Biel, an MCP server or a Markdown export plugin. Other actions appear when their requirements are configured. The same configuration applies across document versions, locales and docs plugin instances.
+
 ## Configure the menu
 
 `pageActions` is an ordered dictionary. Your keys appear first, in the order written. Omitted defaults follow them. The first visible action becomes the main button. Set an entry to `false` to remove it.
@@ -27,10 +33,29 @@ themes: [
 | `copyPage`   | Enabled by default; always copies Markdown                 |
 | `askAi`      | Biel has a project, or you configure an assistant selector |
 | `viewSource` | You provide a Markdown export URL                          |
-| `editPage`   | Docusaurus provides an `editUrl`                           |
+| `editPage`   | The document has an edit URL from Docusaurus `editUrl`     |
 | `mcp`        | You provide a server URL                                   |
 
-Disabling `editPage` restores Classic's footer edit link. Disable the whole module with `pageActions: false`.
+The example above keeps Copy page as the main button, then orders Ask AI, Contact support and Suggest a change in the menu. Any remaining defaults follow those entries when available.
+
+Disabling `editPage` restores Classic's footer edit link. Disable the whole module with `pageActions: false`:
+
+```js title="docusaurus.config.js"
+themes: [["docusaurus-theme-quiet", {pageActions: false}]],
+```
+
+To replace the menu with only your own actions, disable the defaults explicitly:
+
+```js
+pageActions: {
+  support: {label: "Contact support", url: "https://example.com/support"},
+  copyPage: false,
+  askAi: false,
+  viewSource: false,
+  editPage: false,
+  mcp: false,
+},
+```
 
 ## Markdown
 
